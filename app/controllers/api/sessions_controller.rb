@@ -12,6 +12,5 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     logout
-    render "/"
   end
 end

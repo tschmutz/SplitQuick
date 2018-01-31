@@ -13,6 +13,7 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "webpack": "^3.10.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
@@ -26,10 +27,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack"
   },
-
   "engines": {
-      "npm": "5.5.1",
-      "node": "8.5.0"
+    "npm": "5.5.1",
+    "node": "8.5.0"
   },
   "keywords": [],
   "author": "",

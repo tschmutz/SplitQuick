@@ -10,8 +10,13 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className='dashboard'>Dashboard
+      <div className='dashboard'>
+        <div className='dashboard-header'>
+          <h1>Dashboard</h1>
+          <button className='settle'>Settle up</button>
+          <button className='add-bill'>Add a Bill</button>
 
+        </div>
 
       </div>
     )

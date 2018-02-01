@@ -6,10 +6,19 @@ import { login } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const store = configureStore()
   const user = {username: 'taylor', password: '123456'}
   window.user = user
   window.login = login
+  let preloadedState = undefined;
+  if(window.currentUser) {
+    preloadedState = {
+      session:  {
+        currentUser: window.currentUser
+      }
+    }
+    delete window.currentUser;
+  };
+  const store = configureStore(preloadedState)
 
   window.dispatch = store.dispatch
   window.getState = store.getState

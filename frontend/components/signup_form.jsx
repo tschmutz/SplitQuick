@@ -2,12 +2,11 @@ import React from 'react';
 
 
 
-class SessionForm extends React.Component {
+class SignUpForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {username: "", password: ""}
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleGuest = this.handleGuest.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   updateInfo(info) {
@@ -18,11 +17,8 @@ class SessionForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.login(this.state);
-  }
-
-  handleGuest() {
-    this.props.login({username: 'Guest', password: '123456'});
+    this.props.signup(this.state);
+    this.props.history.push('/dashboard')
   }
 
   renderErrors() {
@@ -40,9 +36,12 @@ class SessionForm extends React.Component {
 
 
     return (
-        <div className='session-form'>
-          <form >
-            <label>
+        <div className='signup-form'>
+          <form onSubmit= { this.handleSubmit}>Welcome to SplitQuick
+            {this.renderErrors()}
+            <br/>
+            <label>Username
+              <br/>
             <input type="text"
                    value={this.state.username}
                    onChange={this.updateInfo('username')}
@@ -50,7 +49,8 @@ class SessionForm extends React.Component {
                     />
             </label>
             <br/>
-            <label>
+            <label>Password
+            <br/>
             <input type="password"
                    value={this.state.password}
                    onChange={this.updateInfo('password')}
@@ -58,8 +58,7 @@ class SessionForm extends React.Component {
                     />
             </label>
             <br/>
-            <input onClick={ this.handleSubmit} className='submit-button' type='submit' value="Log in to SplitQuick"/>
-            <input onClick={ this.handleGuest} className='demo-button' type='submit' value="Demo log in"/>
+            <input className='signup-button' type='submit' value="Sign Me Up!"/>
           </form>
 
         </div>
@@ -68,4 +67,4 @@ class SessionForm extends React.Component {
 }
 
 
-export default SessionForm;
+export default SignUpForm;

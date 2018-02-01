@@ -14,12 +14,26 @@
  *= require_self
  */
 
- .header {
+ body, html{
+   margin:0;
+   padding:0;
+ }
+
+  div#header {
+  padding-top: 5px;
   background: #5bc5a7;
   display: block;
+  height: 45px;
+  vertical-align: middle;
+  /* box-shadow: 0 0 2px 0 grey; */
 }
 
 .logo {
+  font-family: 'Source Serif Pro', serif;
+  font-weight: 100;
+  font-size: 16px;
+  letter-spacing: 10px;
+  color: white;
   display: inline-block;
   padding: 10px;
   margin: 0px;
@@ -36,24 +50,71 @@
   border-radius: 2px;
 }
 
+.log-in {
+  font-family: 'Lato', sans-serif;
+  border-radius: 5px;
+  font-size: 12px;
+  text-decoration: none;
+  background-color: #5bc5a7;
+  color: white;
+  padding: 3px 6px 3px 6px;
+  box-shadow: .5px .5px 1px 1px grey;
+  border-top: .5px solid lightgray;
+  text-shadow: 0 -1px 0 grey;
+  margin-right: 3px;
+}
+ .sign-up {
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  background-color: #ff652f;
+  color: white;
+  padding: 5px 6px 5px 6px;
+  box-shadow: .5px .5px 1px 1px grey;
+  border-top: .5px solid lightgray;
+  text-shadow: 0 -1px 0 grey;
+  margin-left: 5px;
+}
+
 .session-form {
   text-align: center;
-  width: 300px;
-  height: 150px;
-  border-radius: 4px;
+  width: 265px;
+  height: 160px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   float: right;
   box-shadow: 5px;
   background-color: #eee;
+  box-shadow: 1px 1px 2px 2px grey;
 }
 
 .login-input {
   padding: 5px;
   margin: 5px;
-  border-radius: 2px;
-  width: 250px;
+  border-radius: 4px;
+  width: 225px;
   background-color: rgb(250, 255, 189);
 }
 
 .submit-button {
-  width: 250px;
+  width: 240px;
+  background-color: #5bc5a7;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  border-radius: 5px;
+  height: 25px;
+  font-size: 12px;
+  text-shadow: 0 -1px 0 grey;
+}
+.demo-button {
+  width: 240px;
+  background-color: #ff652f;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  border-radius: 5px;
+  height: 25px;
+  font-size: 12px;
+  text-shadow: 0 -1px 0 grey;
+  margin-top: 5px;
 }

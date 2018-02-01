@@ -17,7 +17,9 @@ class SessionForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.login(this.state)
+    const promise = this.props.login(this.state)
+    // .then( () => this.props.history.push('/dashboard'))
+    console.log(promise);
   }
 
   render () {
@@ -36,15 +38,17 @@ class SessionForm extends React.Component {
           </label>
           <br/>
           <label>
-          <input type="text"
+          <input type="password"
                  value={this.state.password}
                  onChange={this.updateInfo('password')}
                  className="login-input"
                   />
           </label>
           <br/>
-          <input className='submit-button' type='submit' value="Log in"/>
+          <input className='submit-button' type='submit' value="Log in to SplitQuick"/>
+          <input className='demo-button' type='submit' value="Demo log in"/>
         </form>
+
       </div>
     )
   }

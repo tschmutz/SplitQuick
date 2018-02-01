@@ -1,20 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Navbar extends React.Component {
+export default ({currentUser, logout}) => {
+   const display = currentUser ? (
+     <div>
+       <h2>Hello, {currentUser.username}</h2>
+       <button onClick={logout}>Log out</button>
+     </div>
+   ) : (
+     <nav className="login-signup">
+       <Link to='/login' className='log-in'>Log in</Link> or
+       <Link to='/signup' className='sign-up'>Sign up</Link>
 
-handleSubmit() {
+     </nav>
+   )
 
-}
-
-  render() {
   return (
-    <nav className="login-signup">
-      <Link to='/login'>Log in</Link> or
-      <button >Sign up</button>
-    </nav>
+    <div className="banner">
+      {display}
+    </div>
     )
-  }
 };
 
-export default Navbar;
+
+// class Navbar extends React.Component {
+//    const display = props.currentUser ? (
+//      <div>
+//        <h2>Hello, {currentUser.username}</h2>
+//        <button onClick={props.logout}>Log out</button>
+//      </div>
+//    ) : (
+//      <nav className="login-signup">
+//        <Link to='/login'>Log in</Link> or
+//        <button >Sign up</button>
+//      </nav>
+//    )
+//
+// handleSubmit() {
+//
+// }
+//
+//   render() {
+//   return (
+//     <div>
+//       display
+//     </div>
+//     )
+//   }
+// };

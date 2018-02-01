@@ -14,14 +14,14 @@ export const receiveSessionErrors = (errors) => ({
 })
 
 export const signup = (user) => dispatch => (
-  APIUtil.signup(user).then(user => receiveCurrentUser(user)),
+  APIUtil.signup(user).then(user => dispatch(receiveCurrentUser(user))),
     err => (dispatch(receiveSessionErrors(err.responseJSON)))
 )
-export const login = (user) => dispatch => (
-  APIUtil.login(user).then(user => receiveCurrentUser(user)),
-    err => (dispatch(receiveSessionErrors(err.responseJSON)))
-)
+export const login = (user) => dispatch => {
+  console.log(user);
+  console.log(APIUtil.login(user));
+  APIUtil.login(user).then(user => dispatch(receiveCurrentUser(user)))
+}
 export const logout = (user) => dispatch => (
-  APIUtil.logout().then(user => receiveCurrentUser(null)),
-    err => (dispatch(receiveSessionErrors(err.responseJSON)))
+  APIUtil.logout().then(user => dispatch(receiveCurrentUser(null)))
 )

@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Navbar extends React.Component {
 
-  handleClick() {
+handleSubmit() {
 
-  }
+}
 
   render() {
   return (
     <nav className="login-signup">
-      <button onClick={this.handleClick}>Log in</button> or
-      <button onClick={this.handleClick}>Sign up</button>
+      <Link to='/login'>Log in</Link> or
+      <button >Sign up</button>
     </nav>
     )
   }

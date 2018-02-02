@@ -27,13 +27,18 @@ class SessionForm extends React.Component {
 
   renderErrors() {
   return(
-    <ul>
-        <li key='session-error'>
-          {this.props.errors[0]}
-        </li>
-    </ul>
-  );
-}
+        <ul>
+            <li key='session-error'>
+              {this.props.errors[0]}
+            </li>
+        </ul>
+        );
+      }
+
+  componentWillUnmount() {
+    this.props.resetErrors('');
+  }
+
 
   render () {
 

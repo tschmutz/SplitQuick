@@ -20,6 +20,10 @@ class SignUpForm extends React.Component {
     this.props.signup(this.state);
   }
 
+  componentWillUnmount() {
+    this.props.resetErrors('');
+  }
+
 //   renderErrors() {
 //   return(
 //     <ul>
@@ -37,21 +41,23 @@ class SignUpForm extends React.Component {
           <form onSubmit= { this.handleSubmit}>Welcome to SplitQuick
             <div className='signup-errors'>{this.props.errors}</div>
             <br/>
-            <label>Username
+            <label>
               <br/>
             <input type="text"
                    value={this.state.username}
                    onChange={this.updateInfo('username')}
-                   className="login-input"
+                   className="signup-input"
+                   placeholder='Username'
                     />
             </label>
             <br/>
-            <label>Password
+            <label>
             <br/>
             <input type="password"
                    value={this.state.password}
                    onChange={this.updateInfo('password')}
-                   className="login-input"
+                   className="signup-input"
+                   placeholder='Password'
                     />
             </label>
             <br/>

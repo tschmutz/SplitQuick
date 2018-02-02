@@ -18,18 +18,15 @@ class SignUpForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.signup(this.state);
-    this.props.history.push('/dashboard')
   }
 
-  renderErrors() {
-  return(
-    <ul>
-        <li key='session-error'>
-          {this.props.errors[0]}
-        </li>
-    </ul>
-  );
-}
+//   renderErrors() {
+//   return(
+//     <ul>
+//         <li key='session-error'>
+//           {this.props.errors}
+//   );
+// }
 
   render () {
 
@@ -38,7 +35,7 @@ class SignUpForm extends React.Component {
     return (
         <div className='signup-form'>
           <form onSubmit= { this.handleSubmit}>Welcome to SplitQuick
-            {this.renderErrors()}
+            <div className='signup-errors'>{this.props.errors}</div>
             <br/>
             <label>Username
               <br/>

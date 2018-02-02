@@ -60,6 +60,7 @@ class SessionForm extends React.Component {
             <br/>
             <input onClick={ this.handleSubmit} className='submit-button' type='submit' value="Log in to SplitQuick"/>
             <input onClick={ this.handleGuest} className='demo-button' type='submit' value="Demo log in"/>
+            <div className='session-error'>{this.props.errors}</div>
           </form>
 
         </div>

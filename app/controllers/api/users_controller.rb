@@ -5,8 +5,10 @@ class Api::UsersController < ApplicationController
     if @user.save
       log_in(@user)
       render 'api/users/show'
+    elsif User.find_by(username: @user.username)
+      render json: ['Username already taken'], status: 400
     else
-      render json: ['Error']
+      render json: ['Invalid username or password'], status: 400;
     end
   end
 

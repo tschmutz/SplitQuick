@@ -6,9 +6,9 @@ import { login } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  const user = {username: 'taylor', password: '123456'}
-  window.user = user
-  window.login = login
+  // const user = {username: 'taylor', password: '123456'}
+  // window.user = user
+  // window.login = login
   let preloadedState = undefined;
   if(window.currentUser) {
     preloadedState = {

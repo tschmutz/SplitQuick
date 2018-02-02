@@ -7,7 +7,6 @@ class SessionForm extends React.Component {
     super(props)
     this.state = {username: "", password: ""}
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleGuest = this.handleGuest.bind(this);
   }
 
   updateInfo(info) {
@@ -18,22 +17,23 @@ class SessionForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.login(this.state);
+      if(event.target.value === 'Guest') {
+        this.props.login({username: 'Guest', password: '123456'});
+      } else {
+      this.props.login(this.state);
+    }
   }
 
-  handleGuest() {
-    this.props.login({username: 'Guest', password: '123456'});
-  }
 
-  renderErrors() {
-  return(
-        <ul>
-            <li key='session-error'>
-              {this.props.errors[0]}
-            </li>
-        </ul>
-        );
-      }
+  // renderErrors() {
+  // return(
+  //       <ul>
+  //           <li key='session-error'>
+  //             {this.props.errors[0]}
+  //           </li>
+  //       </ul>
+  //       );
+  //     }
 
   componentWillUnmount() {
     this.props.resetErrors('');
@@ -42,11 +42,9 @@ class SessionForm extends React.Component {
 
   render () {
 
-
-
     return (
         <div className='session-form'>
-          <form >
+          <form onSubmit={this.handleSubmit}>
             <label>
             <input type="text"
                    value={this.state.username}
@@ -63,8 +61,8 @@ class SessionForm extends React.Component {
                     />
             </label>
             <br/>
-            <input onClick={ this.handleSubmit} className='submit-button' type='submit' value="Log in to SplitQuick"/>
-            <input onClick={ this.handleGuest} className='demo-button' type='submit' value="Demo log in"/>
+            <input className='submit-button' type='submit' value="Log in to SplitQuick"/>
+            <button onClick={ this.handleSubmit} className='demo-button' value="Guest">Demo log in</button>
             <div className='session-error'>{this.props.errors}</div>
           </form>
 

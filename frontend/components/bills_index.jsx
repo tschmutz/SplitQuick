@@ -1,8 +1,8 @@
 import React from 'react';
 import SideBar from './side_bar_container';
-import Friends from './friends_container';
 
-class Dashboard extends React.Component {
+
+class BillsIndex extends React.Component {
   constructor(props) {
     super(props)
   };
@@ -12,16 +12,17 @@ class Dashboard extends React.Component {
     return (
       <div className='test'>
         <SideBar/>
+
         <div className='dashboard'>
           <div className='dashboard-header'>
-            <h1>Dashboard</h1>
+            <h1>Expenses</h1>
             <button className='settle'>Settle up</button>
             <button className='add-bill'>Add a Bill</button>
           </div>
-          <div className='balances-block'>
-            <div className='balances'>you are owed</div>
-            <div className='balances'>you owe</div>
-            <div className='balances'>total balance</div>
+          <div className='bills-items'>
+            <ul>
+
+            </ul>
           </div>
         </div>
         <div className='sidebar'>
@@ -31,4 +32,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard
+export default BillsIndex;

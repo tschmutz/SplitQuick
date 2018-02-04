@@ -8,6 +8,7 @@ class FriendsIndex extends React.Component {
   };
 
 
+
   render() {
     return (
       <div className='friends-index'>

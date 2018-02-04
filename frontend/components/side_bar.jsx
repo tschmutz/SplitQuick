@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FriendsIndex from './friends_container';
-
+import FriendsSearch from './friends_search_container';
+import fetchUsers from '../actions/user_actions';
 
 class SideBar extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class SideBar extends React.Component {
 
 
   render() {
+    const users = this.props.requestUsers();
     return (
         <div className='sidebar'>
           <div className='sidebar-links'>
@@ -18,6 +20,7 @@ class SideBar extends React.Component {
             <Link className='sidebar-link-exp'to='/all'><i className="fas fa-list"></i>&nbsp; &nbsp;All expenses</Link>
           </div>
           <FriendsIndex/>
+          <FriendsSearch allUsers={users}/>
         </div>
     )
   }

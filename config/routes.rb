@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    get 'friends/create'
+  end
+
+  namespace :api do
+    get 'friends/index'
+  end
+
+  namespace :api do
+    get 'friends/destroy'
+  end
+
   root "static_pages#root"
 
   namespace :api, defaults: {format: :json} do

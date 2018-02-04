@@ -91,6 +91,37 @@
   padding-left: 5px;
 }
 
+.friends-list {
+  list-style-type: none;
+  padding-left: 10px;
+  font-family: 'Lato', sans-serif;
+  width: 165px;
+  font-size: 14px;
+  color: #A0A0A0;
+}
+.friends-list li{
+  padding-left: 5px;
+}
+
+.friend-search-list {
+  font-family: 'Lato', sans-serif;
+  list-style-type: none;
+  height: 200px;
+  width: 165px;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-left: 0px;
+
+}
+.friend-search-list li{
+  padding: 3px;
+}
+.friend-search-list li:hover{
+  background-color: #ff652f;
+  cursor: pointer;
+  color: white;
+}
+
 h3 {
   display: inline-block;
 }

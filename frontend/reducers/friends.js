@@ -1,4 +1,6 @@
-import { RECEIVE_FRIENDS } from '../actions/friend_actions';
+import merge from 'lodash/merge';
+
+import { RECEIVE_FRIENDS, RECEIVE_FRIEND } from '../actions/friend_actions';
 
 
 const friendsReducer = (state = {}, action) => {
@@ -6,6 +8,9 @@ const friendsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_FRIENDS:
       return action.friends;
+    case RECEIVE_FRIEND:
+      let newState = merge({}, state);
+      return merge(newState, action.friend)
     default:
       return state;
   }

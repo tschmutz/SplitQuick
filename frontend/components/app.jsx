@@ -17,11 +17,13 @@ const App = () => (
 
     <div id='header'>
       <Navbar/>
-      <Link to="/" className="header-link">
+      <Link to="/dashboard" className="header-link">
         <h1 className='logo'>SPLITQUICK</h1>
       </Link>
     </div>
     <div className='test'>
+      <Route exact path="/" render={() => <div className='welcome'>Split expenses with friends.<div className='lower-welcome'> <b>Share</b> bills and IOU's. <b> Make sure </b>everyone gets paid back.</div></div>}/>
+      <Route exact path="/login" render={() => <div className='welcome'>Split expenses with friends.<div className='lower-welcome'> <b>Share</b> bills and IOU's. <b> Make sure </b>everyone gets paid back.</div></div>}/>
       <AuthRoute path="/login" component={SessionContainer} />
       <AuthRoute path="/signup" component={SignUpContainer} />
       <ProtectedRoute path="/dashboard" component={DashboardContainer}/>

@@ -5,6 +5,7 @@ class FriendsSearch extends React.Component {
   constructor(props) {
     super(props)
     this.state = {searchName: '',  searchedName: ""}
+    this.selectName = this.selectName.bind(this)
   };
 
   // componentDidMount() {
@@ -19,28 +20,30 @@ class FriendsSearch extends React.Component {
 
   matches() {
     const matches = [];
-
-    this.props.users.forEach(name => {
-      let sub = name.username.slice(0, this.state.searchName.length);
-      if (sub.toLowerCase() === this.state.searchName.toLowerCase() && name.username !== 'Guest') {
-        matches.push(name.username);
+    this.props.users.forEach(user => {
+      let sub = user.username.slice(0, this.state.searchName.length);
+      if (sub.toLowerCase() === this.state.searchName.toLowerCase() && user.username !== 'Guest') {
+        matches.push({username: user.username, id: user.id});
       }
     });
-
-
-
     return matches;
+  }
+
+  selectName(event) {
+    event.preventDefault()
+    console.log({friender_id: this.props.currentUser, friendee_id: event.target.key, status: 'active'});
+    return (event) => this.props.befriend({friender_id: this.props.currentUser, friender_id: event.target.key, status: 'active'})
   }
 
 
 
 
   render() {
-      let results = this.matches().map((result, i) => {
+      let results = this.matches().map((result) => {
     return (
-      <li key={i} onClick={this.selectName}>
+      <li key={result.id} onClick={this.selectName(event)}>
         <i color='white' className="fas fa-plus"></i>
-        &nbsp;&nbsp;{result}</li>
+        &nbsp;&nbsp;{result.username}</li>
     );
   });
 

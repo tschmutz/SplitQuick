@@ -3,7 +3,8 @@ import FriendsSearch from './friends_search.jsx';
 
 
 const mapStateToProps = state => ({
-  users: Object.values(state.users)
+  users: Object.values(state.users),
+  currentUser: state.session.currentUser.id
 });
 
 const mapDispatchToProps = dispatch => ({

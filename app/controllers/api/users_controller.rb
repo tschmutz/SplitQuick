@@ -8,7 +8,7 @@ class Api::UsersController < ApplicationController
     elsif User.find_by(username: @user.username)
       render json: ['Username already taken'], status: 400
     else
-      render json: ['Invalid username or password'], status: 400;
+      render json: ['Password must be at least 6 characters'], status: 400;
     end
   end
 

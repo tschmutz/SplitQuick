@@ -13,6 +13,8 @@ class SideBar extends React.Component {
   render() {
     const users = this.props.requestUsers();
     const friends = this.props.requestFriends();
+    const befriend = this.props.createFriendship;
+
     return (
         <div className='sidebar'>
           <div className='sidebar-links'>
@@ -21,7 +23,7 @@ class SideBar extends React.Component {
             <Link className='sidebar-link-exp'to='/all'><i className="fas fa-list"></i>&nbsp; &nbsp;All expenses</Link>
           </div>
           <FriendsIndex friends={friends}/>
-          <FriendsSearch allUsers={users}/>
+          <FriendsSearch allUsers={users} befriend={befriend}/>
         </div>
     )
   }

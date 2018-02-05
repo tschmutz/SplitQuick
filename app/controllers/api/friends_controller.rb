@@ -1,8 +1,8 @@
 class Api::FriendsController < ApplicationController
 
   def create
-    friendee = currentUser.id
-    @friend = Friend.new(currentUser, params[:id], 'active' )
+    @friendship = Friend.create(friends_params)
+
   end
 
   def index
@@ -13,8 +13,16 @@ class Api::FriendsController < ApplicationController
        fri.friender_id == user.id ? friend_ids.push(fri.friendee_id) : friend_ids.push(fri.friender_id)
        @friends = User.all.select{ |user| friend_ids.include?(user.id)}
      end
+
   end
 
   def destroy
   end
+
+  private
+
+  def friends_params
+    params.require(:friend).permit(:friender_id, :friendee_id, :status)
+  end
+
 end

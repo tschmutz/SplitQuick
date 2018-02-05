@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch, Redirect } from 'react-router-dom';
 import Navbar from './navbar_container';
 import SessionForm from './session_form';
 import SessionContainer from './session_container';
@@ -30,7 +30,7 @@ const App = () => (
         <ProtectedRoute path="/dashboard" component={DashboardContainer}/>
         <ProtectedRoute path="/all" component={BillsContainer}/>
         <ProtectedRoute path="/activity" component={ActivityContainer}/>
-        <Route patch='/*' component={SignUpContainer}/>
+        <Route path='/*' render={() => <Redirect to='/signup'/>}/>
       </Switch>
     </div>
   </div>

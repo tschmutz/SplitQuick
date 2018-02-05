@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Welcome from './welcome_page';
 
 
 class SessionForm extends React.Component {
@@ -43,31 +43,34 @@ class SessionForm extends React.Component {
   render () {
 
     return (
-        <div className='session-form'>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-            <input type="text"
-                   value={this.state.username}
-                   onChange={this.updateInfo('username')}
-                   className="login-input"
-                   placeholder='Username'
-                    />
-            </label>
-            <br/>
-            <label>
-            <input type="password"
-                   value={this.state.password}
-                   onChange={this.updateInfo('password')}
-                   className="login-input"
-                   placeholder="Password"
-                    />
-            </label>
-            <br/>
-            <input className='submit-button' type='submit' value="Log in to SplitQuick"/>
-            <button onClick={ this.handleSubmit} className='demo-button' value="Guest">Demo log in</button>
-            <div className='session-error'>{this.props.errors}</div>
-          </form>
+        <div>
+          <div className='session-form'>
+            <form onSubmit={this.handleSubmit}>
+              <label>
+              <input type="text"
+                     value={this.state.username}
+                     onChange={this.updateInfo('username')}
+                     className="login-input"
+                     placeholder='Username'
+                      />
+              </label>
+              <br/>
+              <label>
+              <input type="password"
+                     value={this.state.password}
+                     onChange={this.updateInfo('password')}
+                     className="login-input"
+                     placeholder="Password"
+                      />
+              </label>
+              <br/>
+              <input className='submit-button' type='submit' value="Log in to SplitQuick"/>
+              <button onClick={ this.handleSubmit} className='demo-button' value="Guest">Demo log in</button>
+              <div className='session-error'>{this.props.errors}</div>
+            </form>
 
+          </div>
+          <Welcome/>
         </div>
     )
   }

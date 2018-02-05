@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import Navbar from './navbar_container';
 import SessionForm from './session_form';
 import SessionContainer from './session_container';
@@ -11,6 +11,7 @@ import SideBar from './side_bar';
 import BillsContainer from './bills_index_container';
 import ActivityContainer from './activity_container';
 import FriendsContainer from './friends_container';
+import Welcome from './welcome_page';
 
 const App = () => (
   <div>
@@ -22,13 +23,15 @@ const App = () => (
       </Link>
     </div>
     <div className='test'>
-      <Route exact path="/" render={() => <div className='welcome'>Split expenses with friends.<div className='lower-welcome'> <b>Share</b> bills and IOU's. <b> Make sure </b>everyone gets paid back.</div></div>}/>
-      <Route exact path="/login" render={() => <div className='welcome'>Split expenses with friends.<div className='lower-welcome'> <b>Share</b> bills and IOU's. <b> Make sure </b>everyone gets paid back.</div></div>}/>
-      <AuthRoute path="/login" component={SessionContainer} />
-      <AuthRoute path="/signup" component={SignUpContainer} />
-      <ProtectedRoute path="/dashboard" component={DashboardContainer}/>
-      <ProtectedRoute path="/all" component={BillsContainer}/>
-      <ProtectedRoute path="/activity" component={ActivityContainer}/>
+      <Switch>
+        <Route exact path="/" component={Welcome}/>
+        <AuthRoute path="/login" component={SessionContainer} />
+        <AuthRoute path="/signup" component={SignUpContainer} />
+        <ProtectedRoute path="/dashboard" component={DashboardContainer}/>
+        <ProtectedRoute path="/all" component={BillsContainer}/>
+        <ProtectedRoute path="/activity" component={ActivityContainer}/>
+        <Route patch='/*' component={SignUpContainer}/>
+      </Switch>
     </div>
   </div>
 );

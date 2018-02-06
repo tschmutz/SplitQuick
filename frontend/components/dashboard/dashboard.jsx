@@ -1,6 +1,6 @@
 import React from 'react';
-import SideBar from './side_bar_container';
-import Friends from './friends_container';
+import SideBar from '../sidebar/side_bar_container';
+import Friends from '../friends/friends_container';
 
 class Dashboard extends React.Component {
   constructor(props) {

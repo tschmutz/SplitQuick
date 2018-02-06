@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FriendsIndex from './friends_index.jsx';
-import { fetchFriends } from '../util/friends_api_util';
+import { fetchFriends } from '../../util/friends_api_util';
 
 
 

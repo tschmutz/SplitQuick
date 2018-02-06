@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FriendShow from './friend_show.jsx';
-import { deleteFriendship } from '../actions/friend_actions';
+import { deleteFriendship } from '../../actions/friend_actions';
 
 
 

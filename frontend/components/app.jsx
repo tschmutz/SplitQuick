@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link, Route, Switch, Redirect } from 'react-router-dom';
-import Navbar from './navbar_container';
-import SessionForm from './session_form';
-import SessionContainer from './session_container';
+import Navbar from './navbar/navbar_container';
+import SessionForm from './session/session_form';
+import SessionContainer from './session/session_container';
 import { AuthRoute } from '../util/route_util';
 import { ProtectedRoute } from '../util/route_util';
-import DashboardContainer from './dashboard_container';
-import SignUpContainer from './signup_container';
-import SideBar from './side_bar';
-import BillsContainer from './bills_index_container';
-import ActivityContainer from './activity_container';
-import FriendsContainer from './friends_container';
+import DashboardContainer from './dashboard/dashboard_container';
+import SignUpContainer from './signup/signup_container';
+import SideBar from './sidebar/side_bar';
+import BillsContainer from './bills/bills_index_container';
+import ActivityContainer from './activity/activity_container';
+import FriendsContainer from './friends/friends_container';
 import Welcome from './welcome_page';
-import FriendShow from './friend_show_container';
+import FriendShow from './friends/friend_show_container';
 
 const App = () => (
   <div>

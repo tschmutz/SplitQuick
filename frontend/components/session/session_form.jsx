@@ -1,5 +1,5 @@
 import React from 'react';
-import Welcome from './welcome_page';
+import Welcome from '../welcome_page';
 
 
 class SessionForm extends React.Component {

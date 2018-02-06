@@ -1,5 +1,5 @@
 import React from 'react';
-import SideBar from './side_bar_container';
+import SideBar from '../sidebar/side_bar_container';
 
 
 class BillsIndex extends React.Component {

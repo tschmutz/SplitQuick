@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FriendsIndex from './friends_index_container';
-import FriendsSearch from './friends_search_container';
-import fetchUsers from '../actions/user_actions';
+import FriendsIndex from '../friends/friends_index_container';
+import FriendsSearch from '../friends/friends_search_container';
+import fetchUsers from '../../actions/user_actions';
 
 class SideBar extends React.Component {
   constructor(props) {

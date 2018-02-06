@@ -39,10 +39,13 @@ class FriendsSearch extends React.Component {
 
 
   render() {
+    let divStyle = {
+    color: '#ff652f',
+  };
       let results = this.matches().map((result) => {
     return (
       <li key={result.id} onClick={this.selectName(result.id)}>
-        <i color='white' className="fas fa-plus"></i>
+        <i style={divStyle} className="fas fa-plus"></i>
         &nbsp;&nbsp;{result.username}</li>
     );
   });

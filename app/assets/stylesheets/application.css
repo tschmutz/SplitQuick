@@ -183,6 +183,10 @@
   color: white;
 }
 
+.friend-search-form {
+  margin-top: -10px;
+}
+
 h3 {
   display: inline-block;
 }
@@ -237,8 +241,9 @@ h3 {
   font-size: 12px;
   text-transform: capitalize;
   font-family: 'Lato', sans-serif;
+  font-weight: 800;
   background: #f6f6f6;
-  color: #ccc;
+  color: #5bc5a7;
   width: 160px;
   height: 15px;
   padding: 3px 0 2px 3px;

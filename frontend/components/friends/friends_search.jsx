@@ -51,9 +51,9 @@ class FriendsSearch extends React.Component {
   });
 
     return (
-      <form>
+      <form className='friend-search-form'><i style={divStyle} className="fas fa-search"></i>&nbsp;
         <input value={this.state.searchName}
-          placeholder='Search'
+          placeholder= 'Search'
           onChange={this.updateInfo()}></input>
         <ul className='friend-search-list'>
           {results}

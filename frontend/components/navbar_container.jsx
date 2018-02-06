@@ -3,8 +3,9 @@ import { logout } from '../actions/session_actions';
 import Navbar from './navbar';
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
+
 });
 
 

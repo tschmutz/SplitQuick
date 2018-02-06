@@ -143,6 +143,23 @@
   color: #5bc5a7;
 }
 
+.delete-friend {
+  border: none;
+  padding: 4px 4px 4px 4px;
+  margin-left: 5px;
+  background-color: #eee;
+  color: #eee;
+  border-radius: 5px;
+
+}
+
+.delete-friend:hover {
+  background-color: red;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  cursor:  pointer;
+}
+
 .friends-list li{
   padding-left: 5px;
 }

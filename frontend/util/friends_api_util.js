@@ -13,3 +13,10 @@ export const createFriendship = (friend) => (
     data:  { friend }
   })
 )
+
+export const deleteFriendship = (id) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/friends/${id}`
+  })
+)

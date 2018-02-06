@@ -4,6 +4,7 @@ import configureStore from './store/store.js';
 import Root from './components/root';
 import { login } from './actions/session_actions';
 import {fetchFriends} from './util/friends_api_util';
+import { deleteFriendship } from './util/friends_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.user = user
   // window.login = login
   window.fetchFriends = fetchFriends;
+  window.deleteFriend = deleteFriendship;
   let preloadedState = undefined;
   if(window.currentUser) {
     preloadedState = {

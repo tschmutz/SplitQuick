@@ -29,10 +29,10 @@ class FriendsSearch extends React.Component {
     return matches;
   }
 
-  selectName(event) {
+  selectName(friendee) {
     event.preventDefault()
-    console.log({friender_id: this.props.currentUser, friendee_id: event.target.key, status: 'active'});
-    return (event) => this.props.befriend({friender_id: this.props.currentUser, friender_id: event.target.key, status: 'active'})
+    const friender = this.props.currentUser;
+    return (event) => this.props.befriend({friendee_id: friendee, friender_id: friender, status: 'active'})
   }
 
 
@@ -41,7 +41,7 @@ class FriendsSearch extends React.Component {
   render() {
       let results = this.matches().map((result) => {
     return (
-      <li key={result.id} onClick={this.selectName(event)}>
+      <li key={result.id} onClick={this.selectName(result.id)}>
         <i color='white' className="fas fa-plus"></i>
         &nbsp;&nbsp;{result.username}</li>
     );

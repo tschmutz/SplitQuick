@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FriendsIndex from './friends_container';
+import FriendsIndex from './friends_index_container';
 import FriendsSearch from './friends_search_container';
 import fetchUsers from '../actions/user_actions';
 

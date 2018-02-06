@@ -12,13 +12,14 @@ import BillsContainer from './bills_index_container';
 import ActivityContainer from './activity_container';
 import FriendsContainer from './friends_container';
 import Welcome from './welcome_page';
+import FriendShow from './friend_show_container';
 
 const App = () => (
   <div>
 
     <div id='header'>
       <Navbar/>
-      <Link to="/dashboard" className="header-link">
+      <Link to="/" className="header-link">
         <h1 className='logo'>SPLITQUICK</h1>
       </Link>
     </div>
@@ -30,6 +31,7 @@ const App = () => (
         <ProtectedRoute path="/dashboard" component={DashboardContainer}/>
         <ProtectedRoute path="/all" component={BillsContainer}/>
         <ProtectedRoute path="/activity" component={ActivityContainer}/>
+        <ProtectedRoute path="/friend/:id" component={FriendShow}/>
         <Route path='/*' render={() => <Redirect to='/signup'/>}/>
       </Switch>
     </div>

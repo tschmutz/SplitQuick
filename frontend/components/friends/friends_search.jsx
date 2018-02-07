@@ -6,6 +6,7 @@ class FriendsSearch extends React.Component {
     super(props)
     this.state = {searchName: '',  searchedName: ""}
     this.selectName = this.selectName.bind(this)
+    console.log(this.props);
   };
 
   // componentDidMount() {
@@ -19,10 +20,16 @@ class FriendsSearch extends React.Component {
 
 
   matches() {
+    const friendId = []
+      this.props.friends.forEach(name => friendId.push(name.id));
+      friendId.push(this.props.currentUser)
     const matches = [];
     this.props.users.forEach(user => {
       let sub = user.username.slice(0, this.state.searchName.length);
-      if (sub.length >= 1 && sub.toLowerCase() === this.state.searchName.toLowerCase() && user.username !== 'Guest') {
+      let nameMatch = sub.length >= 1 && sub.toLowerCase() === this.state.searchName.toLowerCase()
+      let unwantedNames = (!friendId.includes(user.id))
+      console.log('Props', this.props);
+      if (nameMatch && unwantedNames) {
         matches.push({username: user.username, id: user.id});
       }
     });

@@ -51,7 +51,15 @@ class  FriendShow extends React.Component {
               placeholder='$0.00'>
             </input>
           </div>
-          <button>Paid by</button>
+            <div className="wrapper-dropdown" tabindex="1">
+                <select className='select-dropdown' name="cars">
+                  <option value="" selected disabled hidden>Paid by</option>
+                  <option value="user">You</option>
+                  <option value='friend'>{this.props.friend.username}</option>
+                  <option value="split">Split</option>
+                </select>
+            </div>
+
           <button className='modal-add-bill' type='submit'>Add Bill</button>
         </div>
 
@@ -60,7 +68,7 @@ class  FriendShow extends React.Component {
       </Modal>
     )
   }
-
+  // <button className='paid-by'>Paid by</button>
 
 
   render() {

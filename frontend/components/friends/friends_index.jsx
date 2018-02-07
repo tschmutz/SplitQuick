@@ -6,7 +6,6 @@ class FriendsIndex extends React.Component {
   constructor(props) {
     super(props)
     this.selectName = this.selectName.bind(this)
-
   };
 
 

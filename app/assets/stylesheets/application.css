@@ -416,6 +416,7 @@ h3 {
 .modal-amount-container {
   height: 45px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .modal-amount {
@@ -427,20 +428,51 @@ h3 {
   border: none !important;
 }
 
+.paid-by {
+  margin-top: 10px;
+  background-color: #5bc5a7;
+  text-shadow: 0 -1px 0 grey;
+  color: white;
+  height: 25px;
+  width: 50px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  padding-right: 5px;
+}
+
+.select-dropdown {
+  background-color: #5bc5a7;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  width: 90px;
+  height: 38px;
+  margin-left: 50%;
+}
+
+.paid {
+  font-family: 'Lato', sans-serif;
+}
+
 .modal-add-bill {
   float: right;
   width: 70px;
   height: 38px;
-  background-color: #5bc5a7;
+  background-color: #ff652f;
   font-size: 15px;
   font-family: 'Lato', sans-serif;
   border-radius: 7px;
   color: white;
   /* border: .5px solid #318970; */
   text-shadow: 0 -1px 0 grey;
-  margin: 12px;
+  margin-right: 10px;
 }
 
+.wrapper-dropdown {
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+}
 
  .settle {
    float: right;

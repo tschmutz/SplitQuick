@@ -23,7 +23,7 @@ class SideBar extends React.Component {
             <Link className='sidebar-link-exp'to='/all'><i className="fas fa-list"></i>&nbsp; &nbsp;All expenses</Link>
           </div>
           <FriendsIndex friends={friends}/>
-          <FriendsSearch allUsers={users} befriend={befriend}/>
+          <FriendsSearch friends={friends} allUsers={users} befriend={befriend}/>
         </div>
     )
   }

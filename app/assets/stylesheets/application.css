@@ -162,6 +162,7 @@
 
 .friends-list li{
   padding-left: 5px;
+  padding-bottom: 5px;
 }
 
 .friend-search-list {
@@ -330,6 +331,116 @@ h3 {
    text-shadow: 0 -1px 0 grey;
    margin-top: 12px;
  }
+
+ .add-bill-modal {
+   height: 260px;
+   width: 360px;
+   background-color: #fff;
+   margin-top: 100px;
+   border: 1px solid #eee;
+   position: absolute;
+   top: 25%;
+   left: 50%;
+   transform: translate(-50%, -50%) !important;
+   outline: none;
+   border-radius: 7px;
+   border: 1px solid #999;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+ }
+
+.modal-header {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #5bc5a7;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  border-bottom: 1px solid #36977b
+}
+
+.modal-exit {
+  color: white;
+  padding: 7px 7px 0 0;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  text-shadow: 0 -1px 0 grey;
+}
+.modal-h3 {
+  display: inline;
+  vertical-align: middle;
+  color: white;
+  padding-left: 15px;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  text-shadow: 0 -1px 0 grey;
+  margin-top: 7px;
+}
+
+.modal-name-input {
+  font-family: 'Lato', sans-serif;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  margin-top: 10px;
+}
+
+.modal-desc {
+  height: 150px;
+  text-align: center;
+}
+
+.add-names-modal {
+  border: none !important;
+  font-size: 14px;
+  color: #555;
+  display: inline;
+  margin-top: 5px;
+
+}
+
+.description {
+  display: inline;
+  height: 24px;
+  width: 165px;
+  border-bottom: 3px dotted black;
+  margin-bottom: 10px;
+  font-size: 20px;
+  border: none !important;
+}
+
+
+.modal-amount-container {
+  height: 45px;
+  text-align: center;
+}
+
+.modal-amount {
+  display: inline;
+  height: 44px;
+  font-size: 40px;
+  width: 165px;
+  text-align: center;
+  border: none !important;
+}
+
+.modal-add-bill {
+  float: right;
+  width: 70px;
+  height: 38px;
+  background-color: #5bc5a7;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  border-radius: 7px;
+  color: white;
+  /* border: .5px solid #318970; */
+  text-shadow: 0 -1px 0 grey;
+  margin: 12px;
+}
+
 
  .settle {
    float: right;

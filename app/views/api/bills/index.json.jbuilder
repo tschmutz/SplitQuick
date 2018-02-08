@@ -4,7 +4,8 @@
     json.amount bill.amount
     json.lender bill.lender_id
     json.lendee bill.lendee_id
-    json.date bill.created_at
+    json.day bill.created_at.strftime("%d")
+    json.month bill.created_at.strftime("%b")
     json.settled bill.settled
   end
 end
@@ -15,7 +16,8 @@ end
     json.amount bill.amount
     json.lender bill.lender_id
     json.lendee bill.lendee_id
-    json.date bill.created_at
+    json.day bill.created_at.strftime("%d")
+    json.month bill.created_at.strftime("%b")
     json.settled bill.settled
   end
 end

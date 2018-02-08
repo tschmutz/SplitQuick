@@ -636,3 +636,94 @@ h3 {
   background-color: #c83400;
   cursor: pointer;
 }
+
+.ul-bills {
+  padding-left: 10px;
+}
+
+ .bills-list-item {
+   height: 55px;
+   width: 550px;
+   padding-left: 0;
+   list-style: none;
+   border-top: 1px solid #eee;
+   border-bottom: 1px solid #eee;
+   font-family: 'Lato', sans-serif;
+ }
+
+ .bill-item-wrapper {
+   display: flex;
+
+ }
+
+ .bill-item-main-block {
+   display: flex;
+   width: 300px;
+   vertical-align: middle;
+ }
+
+ .bill-item-date {
+   display: flex;
+   flex-direction: column;
+   width: 35px;
+   padding-top: 10px;
+ }
+
+ .bill-item-month {
+   display: inline-block;
+   color: #999;
+   text-transform: capitalize;
+   font-size: 12px;
+ }
+
+ .bill-item-day {
+   color: #999;
+   display: inline-block;
+   font-size: 18px;
+ }
+ .bill-item-dolla {
+   display: inline-block;
+   width: 20px;
+   font-size: 22px;
+   padding-top: 15px;
+   padding-right: 15px;
+   color: #5bc5a7;
+ }
+
+ .bill-item-header {
+   display: inline-block;
+   font-size: 16px;
+   font-weight: 900;
+   padding-top: 18px;
+ }
+ .bill-item-payer {
+   float: right;
+   width: 115px;
+   display: inline-block;
+   font-size: 12px;
+   color: #aaa;
+   text-align: right;
+   padding-top: 10px;
+ }
+ .bill-item-ower{
+   display: inline-block;
+   width: 135px;
+   align-items: center;
+   font-size: 12px;
+   color: #aaa;
+   padding-left: 10px;
+   padding-top: 10px;
+ }
+
+ .bill-item-lent-amount {
+   font-weight: 900;
+   font-family: 'Lato', sans-serif;
+   font-size: 16px;
+   color: black;
+ }
+ .bill-item-owed-amount {
+   font-weight: 900;
+   font-family: 'Lato', sans-serif;
+   font-size: 16px;
+   color: black;
+ }

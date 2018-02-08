@@ -1,6 +1,6 @@
 import React from 'react';
 import SideBar from '../sidebar/side_bar_container';
-
+import BillItem from './bill_index_item';
 
 class BillsIndex extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class BillsIndex extends React.Component {
 
 
   render() {
-    console.log(this.props);
+    console.log(this.props.friends);
     return (
       <div className='test'>
         <SideBar/>
@@ -23,9 +23,20 @@ class BillsIndex extends React.Component {
             <button className='add-bill'>Add a Bill</button>
           </div>
           <div className='bills-items'>
-            <ul>
-              {this.props.bills.map( bill => (
-                <li>{bill.amount}</li>
+            <ul className='ul-bills'>
+              {this.props.bills.map(bill => (
+                <li className='bills-list-item'>
+                  <BillItem
+                    key={bill.id}
+                    month={bill.month}
+                    day={bill.day}
+                    title={bill.title}
+                    amount={bill.amount}
+                    lenderId={bill.lender}
+                    lendeeId={bill.lendee}
+                    currentUser={this.props.currentUser}
+                    friends={this.props.friends}/>
+                </li>
               ))}
             </ul>
           </div>

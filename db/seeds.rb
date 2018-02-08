@@ -32,3 +32,4 @@ Bill.create!(lender_id: user5.id, lendee_id: user6.id, title: "Motorcycle", sett
 Bill.create!(lender_id: user15.id, lendee_id: user4.id, title: "Bunjee Jumping", settled: false, amount: "145.80");
 Bill.create!(lender_id: user13.id, lendee_id: user11.id, title: "30 pounds of cupcakes", settled: false, amount: "77045.00");
 Bill.create!(lender_id: user6.id, lendee_id: user10.id, title: "Kidney", settled: false, amount: "9945.00");
+Bill.create!(lender_id: user12.id, lendee_id: user0.id, title: "Truck", settled: false, amount: "19543.00");

@@ -56,7 +56,6 @@ class  FriendShow extends React.Component {
                   <option value="" selected disabled hidden>Paid by</option>
                   <option value="user">You</option>
                   <option value='friend'>{this.props.friend.username}</option>
-                  <option value="split">Split</option>
                 </select>
             </div>
 

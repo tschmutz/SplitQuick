@@ -8,7 +8,10 @@ class BillsIndex extends React.Component {
   };
 
 
+
+
   render() {
+    console.log(this.props);
     return (
       <div className='test'>
         <SideBar/>
@@ -21,7 +24,9 @@ class BillsIndex extends React.Component {
           </div>
           <div className='bills-items'>
             <ul>
-
+              {this.props.bills.map( bill => (
+                <li>{bill.amount}</li>
+              ))}
             </ul>
           </div>
         </div>

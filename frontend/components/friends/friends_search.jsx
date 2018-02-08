@@ -22,13 +22,14 @@ class FriendsSearch extends React.Component {
   matches() {
     const friendId = []
       this.props.friends.forEach(name => friendId.push(name.id));
-      friendId.push(this.props.currentUser)
+      friendId.push(this.props.currentUser);
+
     const matches = [];
     this.props.users.forEach(user => {
       let sub = user.username.slice(0, this.state.searchName.length);
-      let nameMatch = sub.length >= 1 && sub.toLowerCase() === this.state.searchName.toLowerCase()
-      let unwantedNames = (!friendId.includes(user.id))
-      console.log('Props', this.props);
+      let nameMatch = sub.length >= 1 && sub.toLowerCase() === this.state.searchName.toLowerCase();
+      let unwantedNames = (!friendId.includes(user.id));
+
       if (nameMatch && unwantedNames) {
         matches.push({username: user.username, id: user.id});
       }

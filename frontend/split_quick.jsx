@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
 import Root from './components/root';
 import { login } from './actions/session_actions';
-import {fetchFriends} from './util/friends_api_util';
+import { fetchAllBills } from './util/bills_api_util';
 import { deleteFriendship } from './util/friends_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // const user = {username: 'taylor', password: '123456'}
   // window.user = user
   // window.login = login
-  window.fetchFriends = fetchFriends;
+  window.fetchAllBills = fetchAllBills;
   window.deleteFriend = deleteFriendship;
   let preloadedState = undefined;
   if(window.currentUser) {

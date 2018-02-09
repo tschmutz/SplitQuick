@@ -176,6 +176,8 @@ class  FriendShow extends React.Component {
                     day={bill.day}
                     title={bill.title}
                     amount={bill.amount}
+                    lendeeUsername={bill.lendee_username}
+                    lenderUsername={bill.lender_username}                    
                     lenderId={bill.lender}
                     lendeeId={bill.lendee}
                     currentUser={this.props.currentUser}

@@ -18,13 +18,13 @@
 
   After users log in to their account a side bar will display all of the users current friends. Bellow the list of current friends users have the option of searching for new friends under the Add Friends section. The friend search will auto-populate once the user begins typing their friends name, displaying all usernames that match. Clicking on the username will add it to the current friends list.
 
-  <img src='images/Screen Shot 2018-02-09 at 3.09.09 PM.png'>
+  <img src='images/Screen Shot 2018-02-09 at 3.09.09 PM.png'=200x>
 
 #### Expenses List
 
   By clicking All expenses located on the sidebar users can view all of their bills listed out in chronological order with the most recent bills listed on top. Each listed bill will show the date it was recorded along with the description and amount that the user is owed or owes. Coloring the amount the user owes(orange) as well as the amount they are owed(green) allows for easy and quick interpretation of each bill. Deleting a bill is as easy as clicking the red trash can icon. Deleting bills should be done cautiously as deleting a bill will delete it for you *and* the other user you share it with.
 
-  <img src='images/Screen Shot 2018-02-09 at 3.07.33 PM.png' size=>
+  <img src='images/Screen Shot 2018-02-09 at 3.07.33 PM.png' >
 
 
 

@@ -2,7 +2,7 @@
 
 ## SplitQuick
 
-SplitQuick Live! [](https://splitquick.herokuapp.com/)
+[SplitQuick Live!](https://splitquick.herokuapp.com/)
 
 **SplitQuick** is an expense tracking application that is inspired by Splitwise. Created using Ruby on Rails for the backend, a PostgreSQL database , and  React/Redux for the frontend, SplitQuick enables users to quickly and accurately keep track of debts between themselves and other users.
 

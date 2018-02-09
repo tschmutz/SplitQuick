@@ -18,7 +18,7 @@
 
   After users log in to their account a side bar will display all of the users current friends. Bellow the list of current friends users have the option of searching for new friends under the Add Friends section. The friend search will auto-populate once the user begins typing their friends name, displaying all usernames that match. Clicking on the username will add it to the current friends list.
 
-  <img src='images/Screen Shot 2018-02-09 at 3.09.09 PM.png'=200x>
+  <img src='images/Screen Shot 2018-02-09 at 3.09.09 PM.png' =200x>
 
 #### Expenses List
 

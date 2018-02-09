@@ -6,14 +6,15 @@ import Modal from 'react-modal';
 class Dashboard extends React.Component {
   constructor(props) {
     super(props)
-
   this.state = {modalIsOpen: false}
 
-
+  console.log(this.props.bills);
   this.openModal = this.openModal.bind(this);
   this.closeModal = this.closeModal.bind(this);
 
   };
+
+
 
   openModal() {
     this.setState({modalIsOpen: true});
@@ -23,7 +24,9 @@ class Dashboard extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+
   modal () {
+
     return (
     <Modal
       isOpen={this.state.modalIsOpen}
@@ -37,9 +40,9 @@ class Dashboard extends React.Component {
       </header>
       <form onSubmit={this.handleSubmit} className='add-bill-form'>
         <div className='modal-name-input'>With you and: &nbsp;&nbsp;
-          <input className='add-names-modal'
+          <select className='add-names-modal'
             placeholder='Enter name'>
-          </input>
+          </select>
         </div>
         <br/>
         <div className='modal-desc'>
@@ -63,6 +66,7 @@ class Dashboard extends React.Component {
 
 
   render() {
+
     return (
       <div className='test'>
         <SideBar/>
@@ -74,9 +78,9 @@ class Dashboard extends React.Component {
             <button onClick={this.openModal} className='add-bill'>Add a Bill</button>
           </div>
           <div className='balances-block'>
-            <div className='balances'>you are owed <br/>$0.00</div>
-            <div className='balances'>you owe<br/>$0.00</div>
-            <div className='balances'>total balance<br/>$0.00</div>
+            <div className='balances'>you are owed <br/>${this.props.bills.totalLent}</div>
+            <div className='balances'>you owe<br/>${this.props.bills.totalBorrowed}</div>
+            <div className='balances'>total balance<br/>${this.props.bills.total}</div>
           </div>
         </div>
         <div className='sidebar'>

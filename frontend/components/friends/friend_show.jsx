@@ -5,12 +5,21 @@ import Modal from 'react-modal'
 class  FriendShow extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {modalIsOpen: false}
-
+    this.state = {
+      modalIsOpen: false,
+      description: '',
+      amount: '',
+      payer: ''
+    }
     this.handleDelete = this.handleDelete.bind(this)
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   };
+
+  componentWillMount() {
+    this.props.requestFriends();
+    this.props.requestUsers();
+  }
 
   handleDelete(id) {
     this.props.deleteFriend(id);
@@ -25,7 +34,20 @@ class  FriendShow extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  handleInput(type) {
+    return event =>
+    this.setState({
+      [type]: event.target.value
+    })
+  }
+
+  handleSubmit() {
+    event.preventDefault();
+    console.log('handled Submit');
+  }
+
   modal () {
+
     return (
     <Modal
       isOpen={this.state.modalIsOpen}
@@ -43,16 +65,22 @@ class  FriendShow extends React.Component {
         <br/>
         <div className='modal-desc'>
           <input className='description'
+            value={this.state.description}
+            onChange={this.handleInput('description')}
             placeholder='Enter a Description'>
           </input>
           <br/>
           <div className='modal-amount-container'>
             <input className='modal-amount'
+              type='number'
+              step='.01'
+              value={this.state.amount}
+              onChange={this.handleInput('amount')}
               placeholder='$0.00'>
             </input>
           </div>
-            <div className="wrapper-dropdown" tabindex="1">
-                <select className='select-dropdown' name="cars">
+            <div className="wrapper-dropdown">
+                <select  onChange={this.handleInput('payer')} className='select-dropdown' value={this.state.payer}>
                   <option value="" selected disabled hidden>Paid by</option>
                   <option value="user">You</option>
                   <option value='friend'>{this.props.friend.username}</option>
@@ -73,7 +101,10 @@ class  FriendShow extends React.Component {
   render() {
     var styles = {
     color:'black',
-  };
+    };
+
+    if (!this.props.friend) return null;
+    
     return (
       <div className='test'>
         <SideBar/>

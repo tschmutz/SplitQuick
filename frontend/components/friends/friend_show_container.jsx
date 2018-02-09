@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FriendShow from './friend_show.jsx';
-import { deleteFriendship } from '../../actions/friend_actions';
-
+import { deleteFriendship, fetchFriends } from '../../actions/friend_actions';
+import { fetchUsers} from '../../actions/user_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -12,7 +12,9 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  deleteFriend: (friendId) => dispatch(deleteFriendship(friendId))
+  deleteFriend: (friendId) => dispatch(deleteFriendship(friendId)),
+  requestFriends: () => dispatch(fetchFriends()),
+  requestUsers: () => dispatch(fetchUsers())
 });
 
 

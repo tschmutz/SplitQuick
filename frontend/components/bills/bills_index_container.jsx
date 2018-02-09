@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import BillsIndex from './bills_index.jsx';
-import { fetchAllBills } from '../../actions/bills_actions'
-
+import { fetchAllBills, createBill } from '../../actions/bills_actions';
+import { fetchUsers} from '../../actions/user_actions';
+import { fetchFriends } from '../../actions/friend_actions';
 
 const mapStateToProps = state => ({
   bills: Object.values(state.bills),
@@ -10,6 +11,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  createBill: bill => dispatch(createBill(bill)),
+  requestBills: () => dispatch(fetchAllBills()),
+  requestUsers: () => dispatch(fetchUsers()),
+  requestFriends: () => dispatch(fetchFriends())
 });
 
 

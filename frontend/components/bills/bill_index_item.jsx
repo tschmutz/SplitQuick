@@ -9,13 +9,16 @@ class BillItem extends React.Component {
 
 
   render() {
+
+
+
     const lendeeId = this.props.lendeeId;
     const lenderId = this.props.lenderId;
     console.log(this.props);
     const lender = this.props.lenderId == this.props.currentUser.id ? 'You' : this.props.friends[lenderId].username
-    const lendee = lender == 'You' ? this.props.friends[lendeeId].username :'You'
+    const lendee = lender === 'You' ? this.props.friends[lendeeId].username :'You'
     const amount = this.props.amount
-    const style = lendee == 'You' ? {color: '#ff652f'} : {color: '#5bc5a7'}
+    const style = lendee === 'You' ? {color: '#ff652f'} : {color: '#5bc5a7'}
     return (
       <div className='bill-item-wrapper'>
         <div className='bill-item-main-block'>

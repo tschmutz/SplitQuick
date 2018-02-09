@@ -5,7 +5,7 @@ import { fetchFriends } from '../../util/friends_api_util';
 
 
 const mapStateToProps = state => ({
-  friends: [state.friends]
+  friends: state.friends
 });
 
 const mapDispatchToProps = dispatch => ({

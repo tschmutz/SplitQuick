@@ -4,3 +4,11 @@ export const fetchAllBills = () => (
     url: 'api/bills'
   })
 )
+
+export const createBill = ( bill ) => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/bills',
+    data: { bill }
+  })
+)

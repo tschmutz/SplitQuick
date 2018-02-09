@@ -1,6 +1,7 @@
 import React from 'react';
 import SideBar from '../sidebar/side_bar_container';
-import Modal from 'react-modal'
+import Modal from 'react-modal';
+import BillItem from '../bills/bill_index_item';
 
 class  FriendShow extends React.Component {
   constructor(props) {
@@ -14,11 +15,14 @@ class  FriendShow extends React.Component {
     this.handleDelete = this.handleDelete.bind(this)
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.friendsBills = this.friendsBills.bind(this);
+
   };
 
   componentWillMount() {
     this.props.requestFriends();
     this.props.requestUsers();
+    this.props.requestBills();
   }
 
   handleDelete(id) {
@@ -41,9 +45,46 @@ class  FriendShow extends React.Component {
     })
   }
 
+  friendsBills() {
+    let bills = [];
+    let friendId = this.props.friend.id;
+    let userId = this.props.currentUser.id
+    this.props.bills.forEach(function(bill) {
+      if((bill.lender === friendId && bill.lendee === userId ) ||
+      (bill.lendee === friendId && bill.lender === userId )) {
+        bills.push(bill);
+      }
+    })
+    return bills;
+  }
+
+  organizeArguments() {
+    this.closeModal;
+    const friend = this.props.friend;
+    const lenderId = this.state.payer == 'user' ? this.props.currentUser.id : friend.id
+    const lendeeId = lenderId == this.props.currentUser.id ? friend.id : this.props.currentUser.id
+    return {
+      amount: this.state.amount,
+      title: this.state.description,
+      lender_id: lenderId,
+      lendee_id: lendeeId,
+      settled: false
+    }
+  }
+
+  clearState() {
+    return
+    this.setState({
+      modalIsOpen: false,
+      description: '',
+      amount: '',
+      payer: ''
+    })
+  }
+
   handleSubmit() {
     event.preventDefault();
-    console.log('handled Submit');
+    return (event) => this.props.createBill(this.organizeArguments())
   }
 
   modal () {
@@ -59,7 +100,7 @@ class  FriendShow extends React.Component {
         <h3 className='modal-h3'>Add a bill</h3>
         <b className='modal-exit'onClick={this.closeModal}><i className="fas fa-times"></i></b>
       </header>
-      <form onSubmit={this.handleSubmit} className='add-bill-form'>
+      <form onSubmit={this.handleSubmit()} className='add-bill-form'>
         <div className='modal-name-input'>With you and {this.props.friend.username}
         </div>
         <br/>
@@ -104,7 +145,16 @@ class  FriendShow extends React.Component {
     };
 
     if (!this.props.friend) return null;
-    
+    const friendBills = (this.friendsBills());
+    // let bills = [];
+    // console.log(this.props);
+    // this.props.bills.forEach(function(bill) {
+    //   if((bill.lender === this.props.friend.id && bill.lendee === this.props.currentUser.id ) ||
+    //   (bill.lendee === this.props.friend.id && bill.lender === this.props.currentUser.id )) {
+    //     bills.push(bill);
+    //   }
+    // })
+
     return (
       <div className='test'>
         <SideBar/>
@@ -115,6 +165,25 @@ class  FriendShow extends React.Component {
               <i style={styles} className="fas fa-trash-alt"></i>&nbsp;Delete Friend</button>
             <button className='settle'>Settle up</button>
             <button  onClick={this.openModal} className='add-bill'>Add a Bill</button>
+          </div>
+          <div className='bills-items'>
+            <ul className='ul-bills'>
+              {friendBills.map( bill => (
+                <li className='bills-list-item'>
+                  <BillItem
+                    month={bill.month}
+                    id={bill.id}
+                    day={bill.day}
+                    title={bill.title}
+                    amount={bill.amount}
+                    lenderId={bill.lender}
+                    lendeeId={bill.lendee}
+                    currentUser={this.props.currentUser}
+                    friends={this.props.friends}
+                    deleteBill={this.props.destroyBill}/>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
         <div className='sidebar'>

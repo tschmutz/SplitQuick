@@ -26,6 +26,12 @@ class Api::BillsController < ApplicationController
   end
 
   def destroy
+    @bill = Bill.find(params[:id])
+    if @bill.destroy
+      render json: ['destroyed!!!']
+    else
+      render json: ['Sorry, you cant get rid of this bill']
+    end
   end
 
   private

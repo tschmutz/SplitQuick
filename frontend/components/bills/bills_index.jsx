@@ -20,11 +20,15 @@ class BillsIndex extends React.Component {
   this.clearState = this.clearState.bind(this);
   };
 
-  componentWillMount() {
-    this.props.requestUsers();
-    this.props.requestBills();
-    this.props.requestFriends();
+  componentDidlMount() {
+    this.props.requestFriends().then(() => {
+      this.props.requestUsers();
+      this.props.requestBills();
+    });
+
+    Modal.setAppElement=('#root')
   }
+
 
 
   openModal() {
@@ -121,7 +125,7 @@ class BillsIndex extends React.Component {
               </select>
           </div>
 
-          <button onClick={this.closeModal} className='modal-add-bill' type='submit'>Add Bill</button>
+          <button className='modal-add-bill' type='submit'>Add Bill</button>
         </div>
 
       </form>
@@ -132,9 +136,8 @@ class BillsIndex extends React.Component {
 
 
   render() {
-    console.log(this.props.bills);
-
-
+    console.log('========================',this.props);
+    if (this.props.friends === {}) return null;
     return (
       <div className='test'>
         <SideBar/>
@@ -150,20 +153,27 @@ class BillsIndex extends React.Component {
               {this.props.bills.map( bill => (
                 <li className='bills-list-item'>
                   <BillItem
+                    id={bill.id}
                     month={bill.month}
                     day={bill.day}
                     title={bill.title}
                     amount={bill.amount}
                     lenderId={bill.lender}
+                    lendeeUsername={bill.lendee_username}
+                    lenderUsername={bill.lender_username}
                     lendeeId={bill.lendee}
                     currentUser={this.props.currentUser}
-                    friends={this.props.friends}/>
+                    friends={this.props.friends}
+                    deleteBill={this.props.destroyBill}/>
+
                 </li>
               ))}
             </ul>
           </div>
         </div>
         <div className='sidebar'>
+          <div className='left-sidebar-header'></div>
+          <div className='left-sidebar-header'></div>
         </div>
         {this.modal()}
       </div>

@@ -8,15 +8,19 @@ class BillItem extends React.Component {
   };
 
 
+
   render() {
 
+    var styles = {
+    color:'red',
+    };
 
 
     const lendeeId = this.props.lendeeId;
     const lenderId = this.props.lenderId;
-    console.log(this.props);
-    const lender = this.props.lenderId == this.props.currentUser.id ? 'You' : this.props.friends[lenderId].username
-    const lendee = lender === 'You' ? this.props.friends[lendeeId].username :'You'
+    const lender = this.props.lenderId == this.props.currentUser.id ? 'You' : this.props.lenderUsername;
+    const lendee = lender === 'You' ?  this.props.lendeeUsername  :'You';
+
     const amount = this.props.amount
     const style = lendee === 'You' ? {color: '#ff652f'} : {color: '#5bc5a7'}
     return (
@@ -47,6 +51,9 @@ class BillItem extends React.Component {
           {lender} lent {lendee}
           <div style={style} className='bill-item-owed-amount'>
             ${amount}
+            <div onClick={() => this.props.deleteBill(this.props.id)} className='trashycany'>
+              <i  id='trashcan' style={styles} className="fas fa-trash-alt"></i>
+            </div>
           </div>
         </div>
       </div>

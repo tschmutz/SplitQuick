@@ -12,3 +12,10 @@ export const createBill = ( bill ) => (
     data: { bill }
   })
 )
+
+export const deleteBill = (billId) => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/bills/${billId}`
+  })
+)

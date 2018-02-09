@@ -21,7 +21,7 @@ class BillItem extends React.Component {
     const lender = this.props.lenderId == this.props.currentUser.id ? 'You' : this.props.lenderUsername;
     const lendee = lender === 'You' ?  this.props.lendeeUsername  :'You';
 
-    const amount = this.props.amount
+    const amount = Number((this.props.amount)).toFixed(2)
     const style = lendee === 'You' ? {color: '#ff652f'} : {color: '#5bc5a7'}
     return (
       <div className='bill-item-wrapper'>

@@ -19,10 +19,11 @@ class  FriendShow extends React.Component {
 
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.requestFriends();
     this.props.requestUsers();
     this.props.requestBills();
+    Modal.setAppElement=('#root');
   }
 
   handleDelete(id) {
@@ -59,7 +60,7 @@ class  FriendShow extends React.Component {
   }
 
   organizeArguments() {
-    this.closeModal;
+    this.clearState();
     const friend = this.props.friend;
     const lenderId = this.state.payer == 'user' ? this.props.currentUser.id : friend.id
     const lendeeId = lenderId == this.props.currentUser.id ? friend.id : this.props.currentUser.id
@@ -73,7 +74,6 @@ class  FriendShow extends React.Component {
   }
 
   clearState() {
-    return
     this.setState({
       modalIsOpen: false,
       description: '',

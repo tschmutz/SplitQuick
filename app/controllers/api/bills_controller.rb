@@ -6,7 +6,7 @@ class Api::BillsController < ApplicationController
     if @bill.save
       @bills_owed = current_user.bills_owed
       @bills_lent = current_user.bills_lent
-      render :index;
+      render :index
     else
       render json: ['Bill Create Error'], status: 400
     end
@@ -16,8 +16,8 @@ class Api::BillsController < ApplicationController
   end
 
   def index
-     @bills_owed = current_user.bills_owed
-     @bills_lent = current_user.bills_lent
+    @bills_owed = current_user.bills_owed
+    @bills_lent = current_user.bills_lent
 
     render :index
   end

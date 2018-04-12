@@ -67,6 +67,8 @@ class Dashboard extends React.Component {
 
   render() {
 
+    this.props.bills.filter(bill =>  )
+
     return (
       <div className='test'>
         <SideBar/>

@@ -6,7 +6,6 @@ class FriendsSearch extends React.Component {
     super(props)
     this.state = {searchName: '',  searchedName: ""}
     this.selectName = this.selectName.bind(this)
-    console.log(this.props);
   };
 
   // componentDidMount() {

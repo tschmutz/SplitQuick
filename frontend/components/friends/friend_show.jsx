@@ -136,7 +136,7 @@ class  FriendShow extends React.Component {
       </Modal>
     )
   }
-  // <button className='paid-by'>Paid by</button>
+
 
 
   render() {
@@ -177,7 +177,7 @@ class  FriendShow extends React.Component {
                     title={bill.title}
                     amount={bill.amount}
                     lendeeUsername={bill.lendee_username}
-                    lenderUsername={bill.lender_username}                    
+                    lenderUsername={bill.lender_username}
                     lenderId={bill.lender}
                     lendeeId={bill.lendee}
                     currentUser={this.props.currentUser}

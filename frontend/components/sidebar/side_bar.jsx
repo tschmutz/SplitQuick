@@ -17,8 +17,7 @@ class SideBar extends React.Component {
 
 
   render() {
-    // const users = this.props.requestUsers();
-    // const friends = this.props.requestFriends();
+
     const befriend = this.props.createFriendship;
 
 

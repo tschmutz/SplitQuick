@@ -9,6 +9,9 @@ class Dashboard extends React.Component {
   this.state = {modalIsOpen: false}
 
 
+  this.openModal = this.openModal.bind(this);
+  this.closeModal = this.closeModal.bind(this);
+
   };
 
 

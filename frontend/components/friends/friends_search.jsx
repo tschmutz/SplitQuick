@@ -8,13 +8,6 @@ class FriendsSearch extends React.Component {
     this.selectName = this.selectName.bind(this)
   };
 
-  // componentDidMount() {
-  //   this.props.requestUsers();
-  // }
-  updateInfo() {
-    return event => this.setState({
-      searchName: event.target.value
-    })
   }
 
 

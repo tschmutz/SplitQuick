@@ -9,7 +9,7 @@ import { deleteFriendship } from './util/friends_api_util';
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   // const user = {username: 'taylor', password: '123456'}
-  // window.user = user
+
   // window.login = login
   window.fetchAllBills = fetchAllBills;
   window.deleteFriend = deleteFriendship;

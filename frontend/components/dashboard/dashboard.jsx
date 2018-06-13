@@ -66,14 +66,18 @@ class Dashboard extends React.Component {
 
 
   render() {
-
-    // let billsLent = this.props.bills.filter(bill =>  bill.lender === this.props.currentUser)
+    let bills = this.props.bills.values
+    console.log(bills);
+    let billsLent;
+    let billsOwed;
     console.log(this.props.bills);
     console.log("------------------------");
     console.log(this.props.bills);
     // console.log(billsLent);
     console.log("------------------------");
-
+    if(bills) {
+      billsLent = bills.reduce(bill, next => bill + next)
+    }
     return (
       <div className='test'>
         <SideBar/>

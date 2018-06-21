@@ -112,10 +112,32 @@
   flex-direction: column;
   float: left;
   width: inherit;
+  font-family: 'Lato', sans-serif;
+  color: gray;
+  padding: 3px 8px 5px 5px;
+  font-size: 16px;
+  float: left;
+  padding-left: 10px;
+  text-decoration: none;
 }
 .sidebar {
   display: inline-block;
   width: 200px;
+}
+
+.active {
+  font-family: 'Lato', sans-serif;
+  color: #5bc5a7;
+  font-weight: bold;
+  border-left: 6px solid #5bc5a7;
+  height: 25px;
+  vertical-align: middle;
+  padding-left: 4px;
+  margin-top: 15px;
+  font-size: 16px;
+  float: left;
+  text-decoration: none;
+  margin: 3px;
 }
 
 .friends-index {
@@ -206,17 +228,12 @@ h3 {
 
 .sidebar-link-dash {
   font-family: 'Lato', sans-serif;
-  color: #5bc5a7;
-  font-weight: bold;
-  border-left: 6px solid #5bc5a7;
-  height: 25px;
-  vertical-align: middle;
-  padding-left: 4px;
-  margin-top: 15px;
+  color: gray;
+  padding: 3px 8px 5px 5px;
   font-size: 16px;
   float: left;
+  padding-left: 10px;
   text-decoration: none;
-  margin: 3px;
 }
 .sidebar-link-recent {
   font-family: 'Lato', sans-serif;
@@ -230,7 +247,7 @@ h3 {
 
 .sidebar-link-exp {
   font-family: 'Lato', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   padding: 3px 8px 10px 5px;
   color: gray;
   padding-left: 10px;

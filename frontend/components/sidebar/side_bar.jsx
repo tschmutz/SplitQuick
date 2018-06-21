@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import FriendsIndex from '../friends/friends_index_container';
 import FriendsSearch from '../friends/friends_search_container';
 import fetchUsers from '../../actions/user_actions';
@@ -25,9 +25,9 @@ class SideBar extends React.Component {
     return (
         <div className='sidebar'>
           <div className='sidebar-links'>
-            <Link className='sidebar-link-dash' to='/dashboard'><i className="fas fa-home"></i>&nbsp;Dashboard</Link>
-            <Link className='sidebar-link-recent'to='/activity'><i className="fas fa-flag"></i>&nbsp;&nbsp; Recent activity</Link>
-            <Link className='sidebar-link-exp'to='/all'><i className="fas fa-list"></i>&nbsp; &nbsp;All expenses</Link>
+            <NavLink activeClassName='active' className='sidebar-link-dash' to='/dashboard'><i className="fas fa-home"></i>&nbsp;Dashboard</NavLink>
+            <NavLink activeClassName='active' className='sidebar-link-recent'to='/activity'><i className="fas fa-flag"></i>&nbsp;&nbsp; Recent activity</NavLink>
+            <NavLink activeClassName='active' className='sidebar-link-exp'to='/all'><i className="fas fa-list"></i>&nbsp; &nbsp;All expenses</NavLink>
           </div>
           <FriendsIndex/>
           <FriendsSearch befriend={befriend}/>

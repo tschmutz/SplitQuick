@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default ({currentUser, logout}) => {
-  console.log(this);
    const display = currentUser ? (
      <div className='logged-in'>
        <button className='log-out-button' onClick={() => logout()}>Log out</button>

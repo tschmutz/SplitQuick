@@ -7,7 +7,8 @@ import { fetchFriends } from '../../actions/friend_actions';
 const mapStateToProps = state => ({
   bills: Object.values(state.bills),
   friends: state.friends,
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  loading: false
 });
 
 const mapDispatchToProps = dispatch => ({

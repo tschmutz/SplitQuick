@@ -21,10 +21,13 @@ class BillsIndex extends React.Component {
   };
 
   componentDidlMount() {
-    this.props.requestFriends().then(() => {
-      this.props.requestUsers();
-      this.props.requestBills();
-    });
+    setTimeout(this.props.requestBills(), 3000)
+
+  // componentDidlMount() {
+  //   this.props.requestFriends().then(() => {
+  //     this.props.requestUsers();
+  //     this.props.requestBills();
+  //   });
 
     Modal.setAppElement=('#root')
   }
@@ -136,8 +139,7 @@ class BillsIndex extends React.Component {
 
 
   render() {
-    console.log('========================',this.props);
-    if (this.props.friends === {}) return null;
+    console.log();('========================',this.props);
     return (
       <div className='test'>
         <SideBar/>
@@ -149,6 +151,8 @@ class BillsIndex extends React.Component {
             <button onClick={this.openModal} className='add-bill'>Add a Bill</button>
           </div>
           <div className='bills-items'>
+            {this.state.loading ?
+               'loading' :
             <ul className='ul-bills'>
               {this.props.bills.map( bill => (
                 <li className='bills-list-item'>
@@ -165,10 +169,10 @@ class BillsIndex extends React.Component {
                     currentUser={this.props.currentUser}
                     friends={this.props.friends}
                     deleteBill={this.props.destroyBill}/>
-
                 </li>
               ))}
             </ul>
+          }
           </div>
         </div>
         <div className='sidebar'>

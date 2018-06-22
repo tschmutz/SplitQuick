@@ -20,9 +20,17 @@ const destroyBill = billId => ({
 
 
 
-export const fetchAllBills = () => (dispatch) => (
-  APIUtil.fetchAllBills().then( bills => dispatch(receiveAllBills(bills)))
-)
+export const fetchAllBills = function(){
+  return function dispatcher(dispatch) {
+    // set loading to true for your expenses state
+    // setTimeout 3000
+    // do this call
+    APIUtil.fetchAllBills().then( bills => dispatch(receiveAllBills(bills)))
+    // after it's done set loading to false
+    // response w/ bills
+    // maybe do error state.
+  }
+}
 export const createBill = (bill) => (dispatch) => (
   APIUtil.createBill(bill).then( bill => dispatch(receiveBill(bill)))
 )

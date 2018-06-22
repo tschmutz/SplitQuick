@@ -10,7 +10,7 @@ class SideBar extends React.Component {
   };
 
   componentDidMount() {
-    this.props.requestBills()
+    // this.props.requestBills()
     this.props.requestUsers();
     this.props.requestFriends();
   }
@@ -18,7 +18,7 @@ class SideBar extends React.Component {
 
   render() {
     // const users = this.props.requestUsers();
-    // const friends = this.props.requestFriends();
+    const friends = this.props.requestFriends();
     const befriend = this.props.createFriendship;
 
 

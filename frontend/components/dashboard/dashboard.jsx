@@ -14,6 +14,12 @@ class Dashboard extends React.Component {
 
   };
 
+  componentDidMount() {
+    this.props.requestBills()
+    this.props.requestUsers();
+    this.props.requestFriends();
+  }
+
 
 
   openModal() {
@@ -66,21 +72,13 @@ class Dashboard extends React.Component {
 
 
   render() {
-    let bills = this.props.bills.values
-    console.log(bills);
-    let billsLent;
-    let billsOwed;
     console.log(this.props.bills);
-    console.log("------------------------");
-    console.log(this.props.bills);
-    // console.log(billsLent);
-    console.log("------------------------");
-    if(bills) {
-      billsLent = bills.reduce(bill, next => bill + next)
-    }
+
     return (
       <div className='test'>
-        <SideBar/>
+        <SideBar bills={this.state.bills}
+                friends={this.state.friends}
+                users={this.state.users}/>
         <div className='dashboard'>
           <div className='dashboard-header'>
             <h1>Dashboard</h1>

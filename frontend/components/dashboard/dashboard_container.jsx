@@ -8,7 +8,8 @@ import { fetchUsers } from '../../actions/user_actions';
 const mapStateToProps = state => ({
   friends: [state.friends],
   bills: Object.entries(state.bills).map(([key, value]) => ({key,value})),
-  users: state.users
+  users: state.users,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({

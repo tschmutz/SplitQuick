@@ -72,7 +72,19 @@ class Dashboard extends React.Component {
 
 
   render() {
+    let currentUserId = this.props.currentUser.id;
     console.log(this.props.bills);
+    let amountOwed
+    let amount
+
+    if(this.props.bills) {
+      this.props.bills.forEach(function (bill) {
+        bill.lender == currentUserId ? amountOwed += parseFloat(bill.amount) : amount += bill.amount
+        console.log(bill);
+      })
+    }
+
+    console.log(amountOwed);
 
     return (
       <div className='test'>
@@ -84,7 +96,7 @@ class Dashboard extends React.Component {
             <h1>Dashboard</h1>
             <button className='settle'>Settle up</button>
 
-            <button onClick={this.openModal} className='add-bill'>Add a Bill</button>
+            <button onClick={this.openModal} className='add-bill'>Add aa Bill</button>
           </div>
           <div className='balances-block'>
             <div className='balances'>you are owed <br/>${this.props.bills.totalLent}</div>

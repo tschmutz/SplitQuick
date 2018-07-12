@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // const user = {username: 'taylor', password: '123456'}
 
   // window.login = login
-
+  window.fetchAllBills = fetchAllBills;
+  window.deleteFriend = deleteFriendship;
   let preloadedState = undefined;
   if(window.currentUser) {
     preloadedState = {

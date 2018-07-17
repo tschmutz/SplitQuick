@@ -73,18 +73,18 @@ class Dashboard extends React.Component {
 
   render() {
     let currentUserId = this.props.currentUser.id;
-    console.log(this.props.bills);
+
     let amountOwed
     let amount
 
     if(this.props.bills) {
       this.props.bills.forEach(function (bill) {
         bill.lender == currentUserId ? amountOwed += parseFloat(bill.amount) : amount += bill.amount
-        console.log(bill);
+
       })
     }
 
-    console.log(amountOwed);
+
 
     return (
       <div className='test'>

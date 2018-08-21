@@ -146,7 +146,14 @@ class  FriendShow extends React.Component {
 
     if (!this.props.friend) return null;
     const friendBills = (this.friendsBills());
-
+    // let bills = [];
+    // console.log(this.props);
+    // this.props.bills.forEach(function(bill) {
+    //   if((bill.lender === this.props.friend.id && bill.lendee === this.props.currentUser.id ) ||
+    //   (bill.lendee === this.props.friend.id && bill.lender === this.props.currentUser.id )) {
+    //     bills.push(bill);
+    //   }
+    // })
 
     return (
       <div className='test'>

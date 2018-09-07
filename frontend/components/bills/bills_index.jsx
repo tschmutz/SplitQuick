@@ -156,6 +156,7 @@ class BillsIndex extends React.Component {
               {this.props.bills.map( bill => (
                 <li className='bills-list-item'>
                   <BillItem
+                    key={bill.id}
                     id={bill.id}
                     month={bill.month}
                     day={bill.day}

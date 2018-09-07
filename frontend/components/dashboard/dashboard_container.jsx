@@ -29,12 +29,15 @@ function mapStateToProps({session, bills, users, friends}){
   }, 0)
 
   const totalAmount = amountLent - amountBorrowed
+  const friendsArray = Object.keys(friends).map(id => {
+    return friends[id].username
+  })
 
   return {
     totalAmount,
     amountBorrowed,
     amountLent,
-    friends,
+    friendsArray,
     bills,
     users,
   }

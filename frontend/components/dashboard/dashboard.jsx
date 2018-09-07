@@ -48,6 +48,9 @@ class Dashboard extends React.Component {
         <div className='modal-name-input'>With you and: &nbsp;&nbsp;
           <select className='add-names-modal'
             placeholder='Enter name'>
+            {this.props.friendsArray.map(friend => {
+              <option>{friend}</option>
+            })}
           </select>
         </div>
         <br/>
@@ -72,6 +75,7 @@ class Dashboard extends React.Component {
 
 
   render() {
+    console.log(this.props)
     const totalStyle = this.props.totalAmount > 0 ? '#5bc5a7' : '#ff652f'
 
     return (

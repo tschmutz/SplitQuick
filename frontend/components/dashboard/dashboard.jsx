@@ -72,19 +72,7 @@ class Dashboard extends React.Component {
 
 
   render() {
-    let currentUserId = this.props.currentUser.id;
-
-    let amountOwed
-    let amount
-
-    if(this.props.bills) {
-      this.props.bills.forEach(function (bill) {
-        bill.lender == currentUserId ? amountOwed += parseFloat(bill.amount) : amount += bill.amount
-
-      })
-    }
-
-
+    const totalStyle = this.props.totalAmount > 0 ? '#5bc5a7' : '#ff652f'
 
     return (
       <div className='test'>
@@ -96,12 +84,12 @@ class Dashboard extends React.Component {
             <h1>Dashboard</h1>
             <button className='settle'>Settle up</button>
 
-            <button onClick={this.openModal} className='add-bill'>Add aa Bill</button>
+            <button onClick={this.openModal} className='add-bill'>Add a Bill</button>
           </div>
           <div className='balances-block'>
-            <div className='balances'>you are owed <br/>${this.props.bills.totalLent}</div>
-            <div className='balances'>you owe<br/>${this.props.bills.totalBorrowed}</div>
-            <div className='balances'>total balance<br/>${this.props.bills.total}</div>
+            <div style={{color: '#5bc5a7'}}className='balances'>you are owed <br/>${this.props.amountLent}</div>
+            <div style={{color: '#ff652f'}}className='balances'>you owe<br/>${this.props.amountBorrowed}</div>
+            <div style = {{color: totalStyle}}className='balances'>total balance<br/>${this.props.totalAmount}</div>
           </div>
         </div>
         <div className='sidebar'>

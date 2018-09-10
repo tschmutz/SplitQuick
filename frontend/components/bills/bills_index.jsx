@@ -34,6 +34,8 @@ class BillsIndex extends React.Component {
 
 
 
+
+
   openModal() {
     this.setState({modalIsOpen: true});
   }
@@ -76,11 +78,13 @@ class BillsIndex extends React.Component {
 
   handleSubmit() {
     event.preventDefault();
+    this.clearState()
     return (event) => this.props.createBill(this.organizeArguments())
   }
 
   modal () {
     const friends = Object.values(this.props.friends);
+
     return (
     <Modal
       isOpen={this.state.modalIsOpen}
@@ -154,18 +158,9 @@ class BillsIndex extends React.Component {
                'loading' :
             <ul className='ul-bills'>
               {this.props.bills.map( bill => (
-                <li className='bills-list-item'>
+                <li key={bill.id} className='bills-list-item'>
                   <BillItem
-                    key={bill.id}
-                    id={bill.id}
-                    month={bill.month}
-                    day={bill.day}
-                    title={bill.title}
-                    amount={bill.amount}
-                    lenderId={bill.lender}
-                    lendeeUsername={bill.lendee_username}
-                    lenderUsername={bill.lender_username}
-                    lendeeId={bill.lendee}
+                    bill={bill}
                     currentUser={this.props.currentUser}
                     friends={this.props.friends}
                     deleteBill={this.props.destroyBill}/>
@@ -184,5 +179,15 @@ class BillsIndex extends React.Component {
     )
   }
 }
+
+// id={bill.id}
+// month={bill.month}
+// day={bill.day}
+// title={bill.title}
+// amount={bill.amount}
+// lenderId={bill.lender}
+// lendeeUsername={bill.lendee_username}
+// lenderUsername={bill.lender_username}
+// lendeeId={bill.lendee}
 
 export default BillsIndex;

@@ -10,7 +10,7 @@ class AddModal extends React.Component {
     this.state = {
       modalIsOpen: this.props.isOpen,
       description: '',
-      // friend: '',
+      friend: this.props.friends[0],
       amount: '',
       payer: ''
     }
@@ -75,9 +75,10 @@ class AddModal extends React.Component {
           <div className='modal-name-input'>With you and: &nbsp;&nbsp;
             <select className='add-names-modal'
               onChange={this.handleInput('friend')}
-              placeholder='Enter name'>
+              placeholder='Enter name'
+              defaultValue={friends[0]}>
               {friends.map(friend => (
-                <option>{friend.username}</option>
+                 <option>{friend}</option>
               ))}
             </select>
           </div>
@@ -118,7 +119,8 @@ class AddModal extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const friends = Object.keys(state.friends)
+  const friendsId = Object.keys(state.friends)
+  const friends = friendsId.map(id => state.friends[id].username)
   return {
     friends
   }

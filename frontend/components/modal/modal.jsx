@@ -1,26 +1,25 @@
 import React from 'react'
 import Modal from 'react-modal'
+import {connect} from 'react-redux'
 
 
-export default class AddModal extends React.Component {
+class AddModal extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      modalIsOpen: false,
+      modalIsOpen: this.props.isOpen,
       description: '',
-      friend: '',
+      // friend: '',
       amount: '',
       payer: ''
     }
+  }
 
-    openModal() {
-      this.setState({modalIsOpen: true});
-    }
+  componentDidlMount() {
 
-    closeModal() {
-      this.setState({modalIsOpen: false});
-    }
+    Modal.setAppElement=('#root')
+  }
 
     handleInput(type) {
       return event =>
@@ -60,17 +59,17 @@ export default class AddModal extends React.Component {
     }
 
     render () {
-      const friends = Object.values(this.props.friends);
+      const { friends } = this.props;
       return (
       <Modal
-        isOpen={this.state.modalIsOpen}
-        onRequestClose={this.closeModal}
+        isOpen={this.props.isOpen}
+        onRequestClose={this.props.closeModal}
         style={{overlay: {backgroundColor: 'rgba(220, 220, 220, .8)'}}}
         className='add-bill-modal'>
 
         <header className='modal-header'>
           <h3 className='modal-h3'>Add a bill</h3>
-          <b className='modal-exit'onClick={this.closeModal}><i className="fas fa-times"></i></b>
+          <b className='modal-exit'onClick={this.props.closeModal}><i className="fas fa-times"></i></b>
         </header>
         <form onSubmit={this.handleSubmit()} className='add-bill-form'>
           <div className='modal-name-input'>With you and: &nbsp;&nbsp;
@@ -87,7 +86,7 @@ export default class AddModal extends React.Component {
               <input className='description'
                 value={this.state.description}
                 onChange={this.handleInput('description')}
-                placeholder='Enter a Description'>
+                placeholder='Enter Description'>
               </input>
               <br/>
               <div className='modal-amount-container'>
@@ -117,3 +116,11 @@ export default class AddModal extends React.Component {
       )
     }
 }
+
+function mapStateToProps(state) {
+  const friends = Object.keys(state.friends)
+  return {
+    friends
+  }
+}
+export default connect(mapStateToProps)(AddModal)

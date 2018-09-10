@@ -2,6 +2,7 @@ import React from 'react';
 import SideBar from '../sidebar/side_bar_container';
 import Friends from '../friends/friends_container';
 import Modal from 'react-modal';
+import AddModal from '../modal/modal'
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -20,7 +21,10 @@ class Dashboard extends React.Component {
     this.props.requestFriends();
   }
 
-
+  handleSubmit(args) {
+    event.preventDefault();
+    return (event) => this.props.createBill(args)
+  }
 
   openModal() {
     this.setState({modalIsOpen: true});
@@ -31,51 +35,8 @@ class Dashboard extends React.Component {
   }
 
 
-  modal () {
-
-    return (
-    <Modal
-      isOpen={this.state.modalIsOpen}
-      onRequestClose={this.closeModal}
-      style={{overlay: {backgroundColor: 'rgba(220, 220, 220, .8)'}}}
-      className='add-bill-modal'>
-
-      <header className='modal-header'>
-        <h3 className='modal-h3'>Add a bill</h3>
-        <b className='modal-exit'onClick={this.closeModal}><i className="fas fa-times"></i></b>
-      </header>
-      <form onSubmit={this.handleSubmit} className='add-bill-form'>
-        <div className='modal-name-input'>With you and: &nbsp;&nbsp;
-          <select className='add-names-modal'
-            placeholder='Enter name'>
-            {this.props.friendsArray.map(friend => {
-              <option>{friend}</option>
-            })}
-          </select>
-        </div>
-        <br/>
-        <div className='modal-desc'>
-          <input className='description'
-            placeholder='Enter a Description'>
-          </input>
-          <br/>
-          <div className='modal-amount-container'>
-            <input className='modal-amount'
-              placeholder='$0.00'>
-            </input>
-          </div>
-          <button className='modal-add-bill' type='submit'>Add Bill</button>
-        </div>
-
-      </form>
-
-      </Modal>
-    )
-  }
-
-
   render() {
-    console.log(this.props)
+
     const totalStyle = this.props.totalAmount > 0 ? '#5bc5a7' : '#ff652f'
 
     return (
@@ -85,7 +46,7 @@ class Dashboard extends React.Component {
                 users={this.state.users}/>
         <div className='dashboard'>
           <div className='dashboard-header'>
-            <h1>Dashboard</h1>
+            <h1>Dashboardy</h1>
             <button className='settle'>Settle up</button>
 
             <button onClick={this.openModal} className='add-bill'>Add a Bill</button>
@@ -98,7 +59,10 @@ class Dashboard extends React.Component {
         </div>
         <div className='sidebar'>
         </div>
-        {this.modal()}
+        {this.state.modalIsOpen &&
+          <AddModal isOpen={this.state.modalIsOpen}
+                    addBill={this.handleSubmit}
+                    closeModal={this.closeModal}/>}
       </div>
     )
   }

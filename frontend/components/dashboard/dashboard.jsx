@@ -46,7 +46,7 @@ class Dashboard extends React.Component {
                 users={this.state.users}/>
         <div className='dashboard'>
           <div className='dashboard-header'>
-            <h1>Dashboardy</h1>
+            <h1>Dashboard</h1>
             <button className='settle'>Settle up</button>
 
             <button onClick={this.openModal} className='add-bill'>Add a Bill</button>

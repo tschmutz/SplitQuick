@@ -5,7 +5,7 @@ import { fetchUsers} from '../../actions/user_actions';
 import { fetchFriends } from '../../actions/friend_actions';
 
 const mapStateToProps = state => ({
-  bills: Object.values(state.bills),
+  bills: Object.values(state.bills).reverse(),
   friends: state.friends,
   currentUser: state.session.currentUser,
   loading: false

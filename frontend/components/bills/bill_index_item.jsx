@@ -11,10 +11,6 @@ class BillItem extends React.Component {
 
   render() {
 
-    var styles = {
-    color:'red',
-    };
-
 
     const lendeeId = this.props.bill.lendee;
     const lenderId = this.props.bill.lender;
@@ -52,7 +48,7 @@ class BillItem extends React.Component {
           <div style={style} className='bill-item-owed-amount'>
             ${amount}
             <div onClick={() => this.props.deleteBill(this.props.bill.id)} className='trashycany'>
-              <i  id='trashcan' style={styles} className="fas fa-trash-alt"></i>
+              <i  id='trashcan' style={{color: 'red'}} className="fas fa-trash-alt"></i>
             </div>
           </div>
         </div>

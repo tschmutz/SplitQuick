@@ -20,18 +20,11 @@ class BillsIndex extends React.Component {
   this.clearState = this.clearState.bind(this);
   };
 
-  componentDidlMount() {
-    setTimeout(this.props.requestBills(), 3000)
-
-  // componentDidlMount() {
-  //   this.props.requestFriends().then(() => {
-  //     this.props.requestUsers();
-  //     this.props.requestBills();
-  //   });
-
-    Modal.setAppElement=('#root')
+  componentDidMount() {
+    this.props.requestBills()
+    this.props.requestUsers();
+    this.props.requestFriends();
   }
-
 
 
 
@@ -143,6 +136,7 @@ class BillsIndex extends React.Component {
 
 
   render() {
+    console.log(this.props)
     return (
       <div className='test'>
         <SideBar/>

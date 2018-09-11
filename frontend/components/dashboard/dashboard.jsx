@@ -25,7 +25,6 @@ class Dashboard extends React.Component {
   handleSubmit(args) {
     event.preventDefault();
     console.log('yerrrrrrrro atote', args, this.props)
-    this.props.createBill(args)
     return (event) => this.props.newBill(args)
   }
 
@@ -44,9 +43,7 @@ class Dashboard extends React.Component {
 
     return (
       <div className='test'>
-        <SideBar bills={this.state.bills}
-                friends={this.state.friends}
-                users={this.state.users}/>
+        <SideBar />
         <div className='dashboard'>
           <div className='dashboard-header'>
             <h1>Dashboard</h1>

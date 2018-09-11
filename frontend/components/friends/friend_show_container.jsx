@@ -6,11 +6,15 @@ import { fetchAllBills } from '../../actions/bills_actions';
 import { createBill, deleteBill } from '../../actions/bills_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  let userId = ownProps.match.params.id;
+  const userId = parseInt(ownProps.match.params.id);
+  const bills = Object.values(state.bills).filter(bill => {
+    return bill.lender === userId || bill.lendee === userId
+
+  })
   return {
     friend: state.users[userId],
     friends: state.friends,
-    bills: Object.values(state.bills),
+    bills,
     currentUser: state.session.currentUser
   }
 }

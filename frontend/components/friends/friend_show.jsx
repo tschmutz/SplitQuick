@@ -145,15 +145,6 @@ class  FriendShow extends React.Component {
     };
 
     if (!this.props.friend) return null;
-    const friendBills = (this.friendsBills());
-    // let bills = [];
-    // console.log(this.props);
-    // this.props.bills.forEach(function(bill) {
-    //   if((bill.lender === this.props.friend.id && bill.lendee === this.props.currentUser.id ) ||
-    //   (bill.lendee === this.props.friend.id && bill.lender === this.props.currentUser.id )) {
-    //     bills.push(bill);
-    //   }
-    // })
 
     return (
       <div className='test'>
@@ -168,18 +159,10 @@ class  FriendShow extends React.Component {
           </div>
           <div className='bills-items'>
             <ul className='ul-bills'>
-              {friendBills.map( bill => (
+              {this.props.bills.map( bill => (
                 <li className='bills-list-item'>
                   <BillItem
-                    month={bill.month}
-                    id={bill.id}
-                    day={bill.day}
-                    title={bill.title}
-                    amount={bill.amount}
-                    lendeeUsername={bill.lendee_username}
-                    lenderUsername={bill.lender_username}
-                    lenderId={bill.lender}
-                    lendeeId={bill.lendee}
+                    bill={bill}
                     currentUser={this.props.currentUser}
                     friends={this.props.friends}
                     deleteBill={this.props.destroyBill}/>

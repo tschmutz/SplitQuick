@@ -59,8 +59,7 @@ class BillsIndex extends React.Component {
   }
 
   clearState() {
-    return
-    this.setState({
+    return () => this.setState({
       modalIsOpen: false,
       description: '',
       friend: '',

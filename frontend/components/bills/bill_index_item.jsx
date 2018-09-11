@@ -10,11 +10,8 @@ class BillItem extends React.Component {
 
 
   render() {
-
     const lendeeId = this.props.bill.lendee;
     const lenderId = this.props.bill.lender;
-    console.log(lendeeId, lenderId);
-    console.log(this.props.currentUser.id);
 
     const lender = lenderId == this.props.currentUser.id ? 'You' : this.props.bill.lender_username;
     const lendee = lender === 'You' ?  this.props.bill.lendee_username  :'You';

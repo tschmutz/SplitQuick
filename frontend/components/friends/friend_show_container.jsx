@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
   const bills = Object.values(state.bills).filter(bill => {
     return bill.lender === userId || bill.lendee === userId
 
-  })
+  }).reverse()
   return {
     friend: state.users[userId],
     friends: state.friends,

@@ -18,6 +18,12 @@ class AddModal extends React.Component {
     this.organizeArguments = this.organizeArguments.bind(this)
   }
 
+  readyToAdd() {
+    return Object.values(this.state).every(entry => {
+      return entry !== ''
+    })
+  }
+
   componentDidlMount() {
 
     Modal.setAppElement=('#root')
@@ -56,17 +62,18 @@ class AddModal extends React.Component {
 
     handleAdd() {
       event.preventDefault();
-      this.props.closeModal
+      console.log(this.props)
       console.log(this.organizeArguments())
       this.props.addBill(this.organizeArguments())
     }
 
     render () {
       const { friends } = this.props;
+      console.log(this.readyToAdd());
       return (
       <Modal
         isOpen={this.state.modalIsOpen}
-        onRequestClose={this.props.closeModal}
+        onRequestClose={this.props.closeAddModal}
         style={{overlay: {backgroundColor: 'rgba(220, 220, 220, .8)'}}}
         className='add-bill-modal'>
 
@@ -111,7 +118,7 @@ class AddModal extends React.Component {
                 </select>
             </div>
 
-            <button className='modal-add-bill' type='submit'>Add Bill</button>
+            <button disabled={!this.readyToAdd()} className='modal-add-bill' type='submit'>Add Bill</button>
           </div>
 
         </form>

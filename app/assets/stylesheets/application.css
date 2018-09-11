@@ -108,6 +108,31 @@
    box-shadow: 0 0 12px rgba(0,0,0,0.2);
  }
 
+ .dashboard-list {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+
+ .dashboard-owedlist {
+   font-size: 14px;
+   font-weight: bolder;
+   color: gray;
+   font-family: 'Lato', sans-serif;
+   padding-top: 20px;
+   padding-right: 20px;
+ }
+
+ .dashboard-owelist {
+   border-right: lightgray;
+   font-size: 14px;
+   font-weight: bolder;
+   color: gray;
+   font-family: 'Lato', sans-serif;
+   padding-top: 20px;
+   padding-left: 20px;
+ }
+
 .sidebar-links {
   flex-direction: column;
   float: left;
@@ -473,6 +498,7 @@ h3 {
 }
 
 .modal-add-bill {
+  cursor: pointer;
   float: right;
   width: 70px;
   height: 38px;
@@ -485,6 +511,8 @@ h3 {
   text-shadow: 0 -1px 0 grey;
   margin-right: 10px;
 }
+
+
 
 .wrapper-dropdown {
   display: inline-block;

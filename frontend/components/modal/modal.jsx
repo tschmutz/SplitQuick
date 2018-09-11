@@ -10,10 +10,12 @@ class AddModal extends React.Component {
     this.state = {
       modalIsOpen: this.props.isOpen,
       description: '',
-      friend: this.props.friends[0],
+      friend: this.props.friends[0][1],
       amount: '',
       payer: ''
     }
+    this.handleAdd = this.handleAdd.bind(this)
+    this.organizeArguments = this.organizeArguments.bind(this)
   }
 
   componentDidlMount() {
@@ -29,10 +31,9 @@ class AddModal extends React.Component {
     }
 
     organizeArguments() {
-      this.closeModal;
-      const friend = Object.values(this.props.friends).filter(friend => friend.username === this.state.friend)
-      const lenderId = this.state.payer == 'user' ? this.props.currentUser.id : friend[0].id
-      const lendeeId = lenderId == this.props.currentUser.id ? friend[0].id : this.props.currentUser.id
+      const friend = this.props.friends.filter(friend => friend[1] === this.state.friend)[0]
+      const lenderId = this.state.payer == 'user' ? this.props.currentUser.id : friend[0]
+      const lendeeId = lenderId == this.props.currentUser.id ? friend[0] : this.props.currentUser.id
       return {
         amount: this.state.amount,
         title: this.state.description,
@@ -53,16 +54,18 @@ class AddModal extends React.Component {
       })
     }
 
-    handleSubmit() {
+    handleAdd() {
       event.preventDefault();
-      return (event) => this.props.createBill(this.organizeArguments())
+      this.props.closeModal
+      console.log(this.organizeArguments())
+      this.props.addBill(this.organizeArguments())
     }
 
     render () {
       const { friends } = this.props;
       return (
       <Modal
-        isOpen={this.props.isOpen}
+        isOpen={this.state.modalIsOpen}
         onRequestClose={this.props.closeModal}
         style={{overlay: {backgroundColor: 'rgba(220, 220, 220, .8)'}}}
         className='add-bill-modal'>
@@ -71,14 +74,14 @@ class AddModal extends React.Component {
           <h3 className='modal-h3'>Add a bill</h3>
           <b className='modal-exit'onClick={this.props.closeModal}><i className="fas fa-times"></i></b>
         </header>
-        <form onSubmit={this.handleSubmit()} className='add-bill-form'>
+        <form onSubmit={this.handleAdd} className='add-bill-form'>
           <div className='modal-name-input'>With you and: &nbsp;&nbsp;
             <select className='add-names-modal'
               onChange={this.handleInput('friend')}
               placeholder='Enter name'
               defaultValue={friends[0]}>
               {friends.map(friend => (
-                 <option>{friend}</option>
+                 <option>{friend[1]}</option>
               ))}
             </select>
           </div>
@@ -120,9 +123,10 @@ class AddModal extends React.Component {
 
 function mapStateToProps(state) {
   const friendsId = Object.keys(state.friends)
-  const friends = friendsId.map(id => state.friends[id].username)
+  const friends = friendsId.map(id => [id, state.friends[id].username])
   return {
-    friends
+    friends,
+    currentUser: state.session.currentUser
   }
 }
 export default connect(mapStateToProps)(AddModal)

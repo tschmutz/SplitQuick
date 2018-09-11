@@ -12,6 +12,7 @@ class Dashboard extends React.Component {
 
   this.openModal = this.openModal.bind(this);
   this.closeModal = this.closeModal.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this)
 
   };
 
@@ -23,7 +24,9 @@ class Dashboard extends React.Component {
 
   handleSubmit(args) {
     event.preventDefault();
-    return (event) => this.props.createBill(args)
+    console.log('yerrrrrrrro atote', args, this.props)
+    this.props.createBill(args)
+    return (event) => this.props.newBill(args)
   }
 
   openModal() {

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Dashboard from './dashboard';
 import { fetchFriends} from '../../actions/friend_actions';
-import { fetchAllBills } from '../../actions/bills_actions';
+import { fetchAllBills, createBill } from '../../actions/bills_actions';
 import { fetchUsers } from '../../actions/user_actions';
 
 
@@ -44,6 +44,7 @@ function mapStateToProps({session, bills, users, friends}){
 };
 
 const mapDispatchToProps = dispatch => ({
+  newBill: bill => dispatch(createBill(bill)),
   requestFriends: () => dispatch(fetchFriends()),
   requestBills: () => dispatch(fetchAllBills()),
   requestUsers: () => dispatch(fetchUsers()),

@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createBill: bill => dispatch(createBill(bill)),
+  addBill: bill => dispatch(createBill(bill)),
   requestBills: () => dispatch(fetchAllBills()),
   destroyBill: (billId) => dispatch(deleteBill(billId)),
   requestUsers: () => dispatch(fetchUsers()),

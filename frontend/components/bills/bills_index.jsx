@@ -72,7 +72,7 @@ class BillsIndex extends React.Component {
   handleSubmit() {
     event.preventDefault();
     this.clearState()
-    return (event) => this.props.createBill(this.organizeArguments())
+    return (event) => this.props.addBill(this.organizeArguments())
   }
 
   modal () {
@@ -136,7 +136,6 @@ class BillsIndex extends React.Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <div className='test'>
         <SideBar/>
@@ -174,14 +173,5 @@ class BillsIndex extends React.Component {
   }
 }
 
-// id={bill.id}
-// month={bill.month}
-// day={bill.day}
-// title={bill.title}
-// amount={bill.amount}
-// lenderId={bill.lender}
-// lendeeUsername={bill.lendee_username}
-// lenderUsername={bill.lender_username}
-// lendeeId={bill.lendee}
 
 export default BillsIndex;

@@ -122,6 +122,13 @@
    padding-top: 20px;
    padding-right: 20px;
  }
+ .dashboard-owedlist ul {
+   list-style: none;
+ }
+
+  .dashboard-owelist ul {
+    list-style: none;
+  }
 
  .dashboard-owelist {
    border-right: lightgray;

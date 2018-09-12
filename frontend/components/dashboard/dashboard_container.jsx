@@ -6,6 +6,8 @@ import { fetchUsers } from '../../actions/user_actions';
 
 
 function mapStateToProps({session, bills, users, friends}){
+  const friendObj = {}
+  const billsArray = Object.keys(bills)
   const id = session.currentUser.id
   const amountLent = Object.keys(bills).reduce((total, billId) => {
         const bill = bills[billId]
@@ -17,7 +19,7 @@ function mapStateToProps({session, bills, users, friends}){
           return total
         }
   }, 0)
-  const amountBorrowed = Object.keys(bills).reduce((total, billId) => {
+  const amountBorrowed = billsArray.reduce((total, billId) => {
     const bill = bills[billId]
     const amount = parseInt(bill.amount)
     const lendee = bill.lendee
@@ -33,13 +35,37 @@ function mapStateToProps({session, bills, users, friends}){
     return friends[id].username
   })
 
+  const friendsOwesArray = Object.keys(friends).map((friend) => {
+      const friendOwes = billsArray.reduce((acc, next) => {
+          if(bills[next].lendee === parseInt(friend)) {
+            return acc += parseFloat(bills[next].amount)
+          }else{
+            return acc
+          }
+        },0).toFixed(2)
+
+      const friendOwed = billsArray.reduce((acc, next) => {
+          if(bills[next].lender === parseInt(friend)) {
+
+            return acc += parseFloat(bills[next].amount)
+          }else{
+            return acc
+          }
+      }, 0).toFixed(2)
+
+      return [friend, (friendOwes - friendOwed).toFixed(2)]
+  })
+
+
   return {
     totalAmount,
     amountBorrowed,
     amountLent,
     friendsArray,
-    bills,
-    users,
+    friendsOwesArray,
+    friends
+    // bills,
+    // users,
   }
 };
 

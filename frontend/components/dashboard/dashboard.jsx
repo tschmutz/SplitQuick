@@ -5,6 +5,8 @@ import Modal from 'react-modal';
 import AddModal from '../modal/addModal'
 import SettleModal from '../modal/settleModal'
 
+// Modal.setAppElement('root')
+
 class Dashboard extends React.Component {
   constructor(props) {
     super(props)
@@ -12,7 +14,6 @@ class Dashboard extends React.Component {
     addModalIsOpen: false,
     settleModalIsOpen: false
   }
-
 
   this.openAddModal = this.openAddModal.bind(this);
   this.closeAddModal = this.closeAddModal.bind(this);
@@ -51,7 +52,12 @@ class Dashboard extends React.Component {
 
 
   render() {
-
+    const oweList = this.props.friendsOwesArray.filter(friend => {
+      return friend[1] < 0
+    })
+    const owedList = this.props.friendsOwesArray.filter(friend => {
+      return friend[1] > 0
+    })
     const totalStyle = this.props.totalAmount > 0 ? '#5bc5a7' : '#ff652f'
 
     return (
@@ -72,11 +78,33 @@ class Dashboard extends React.Component {
           <div className='dashboard-list'>
             <div className='dashboard-owelist'>YOU OWE
                 <ul>
-                  
+                  {oweList.map(friend => {
+                    return <li>
+                              <span style={{color: 'black'}}>
+                                {this.props.friends[friend[0]].username}
+                              </span>
+                              <br/>
+                              <span style={{color: '#ff652f'}}>
+                                you owe ${Math.abs(friend[1])}
+                              </span>
+                          </li>
+                  })}
                 </ul>
             </div>
             <div className='dashboard-owedlist'>YOU ARE OWED
-
+                <ul>
+                  {owedList.map(friend => {
+                    return <li>
+                              <span style={{color: 'black'}}>
+                                {this.props.friends[friend[0]].username}
+                              </span>
+                            <br/>
+                              <span style={{color:'#5bc5a7'}}>
+                                  owes you ${friend[1]}
+                              </span>
+                          </li>
+                  })}
+                </ul>
             </div>
           </div>
         </div>

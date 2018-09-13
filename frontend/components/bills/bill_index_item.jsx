@@ -47,7 +47,10 @@ class BillItem extends React.Component {
           <div style={style} className='bill-item-owed-amount'>
             ${amount}
             <div onClick={() => this.props.deleteBill(this.props.bill.id)} className='trashycany'>
-              <i  id='trashcan' style={{color: 'red'}} className="fas fa-trash-alt"></i>
+              <i  id='trashcan' style={{color: 'red'}}
+                  className={this.props.bill.settled ? 'none' : "fas fa-trash-alt"}>
+                  {this.props.bill.settled ? 'settled': ''}
+              </i>
             </div>
           </div>
         </div>

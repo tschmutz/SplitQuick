@@ -43,9 +43,12 @@ class SettleModal extends React.Component {
 
     render () {
       const { friends } = this.props;
-      const {friendBills} = this.props.bills.filter(bill => {
-        return bill.lenderId === this.props.userId || bill.lendeeId === userId
+      const friendBills = this.props.bills.filter(bill => {
+        console.log(parseInt(this.state.friend));
+        return bill.lender === parseInt(this.state.friend)
+              || bill.lendee === parseInt(this.state.friend)
       })
+      console.log(friendBills);
       return (
       <Modal
         isOpen={this.state.modalIsOpen}
@@ -61,17 +64,23 @@ class SettleModal extends React.Component {
           <div className='modal-name-input'>With you and: &nbsp;&nbsp;
             <select className='add-names-modal'
               onChange={this.handleInput('friend')}
-              placeholder='Enter name'
-              defaultValue={friends[0]}>
+              placeholder='Enter name'>
               {friends.map(friend => (
-                 <option>{friend[1]}</option>
+                 <option value={friend[0]}>{friend[1]}</option>
               ))}
             </select>
           </div>
           <br/>
             <div className='setle-modal-bills'>
-
-
+              <ul>
+                {friendBills.map(bill => {
+                  return <li key={bill.id} style={{'list-style': 'none'}}>
+                            which bill?
+                            <br/>
+                            {bill.amount}
+                        </li>
+                })}
+              </ul>
 
             <button className='modal-add-bill' type='submit'>Settle</button>
           </div>

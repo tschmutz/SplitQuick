@@ -24,7 +24,8 @@ class Activity extends React.Component {
 
         </div>
 
-        <div className='sidebar'>
+        <div className='sidebar'>YOUR TOTAL BALANCE
+
         </div>
       </div>
     )

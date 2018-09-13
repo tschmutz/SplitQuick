@@ -108,7 +108,7 @@ class  FriendShow extends React.Component {
           <input className='description'
             value={this.state.description}
             onChange={this.handleInput('description')}
-            placeholder='Enter a Description'>
+            placeholder='Enter Description'>
           </input>
           <br/>
           <div className='modal-amount-container'>

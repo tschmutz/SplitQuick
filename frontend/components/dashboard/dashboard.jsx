@@ -4,6 +4,7 @@ import Friends from '../friends/friends_container';
 import Modal from 'react-modal';
 import AddModal from '../modal/addModal'
 import SettleModal from '../modal/settleModal'
+import { Link } from 'react-router-dom'
 
 // Modal.setAppElement('root')
 
@@ -79,14 +80,17 @@ class Dashboard extends React.Component {
             <div className='dashboard-owelist'>YOU OWE
                 <ul>
                   {oweList.map(friend => {
-                    return <li>
-                              <span style={{color: 'black'}}>
-                                {this.props.friends[friend[0]].username}
-                              </span>
-                              <br/>
-                              <span style={{color: '#ff652f'}}>
-                                you owe ${Math.abs(friend[1])}
-                              </span>
+                    return <li key={friend[0]}>
+                              <Link to={`/friend/${friend[0]}`} key={friend[0]} className='friend-index-item' >
+
+                                <span style={{color: 'black'}}>
+                                  {this.props.friends[friend[0]].username}
+                                </span>
+                                <br/>
+                                <span style={{color: '#ff652f'}}>
+                                  you owe ${Math.abs(friend[1])}
+                                </span>
+                              </Link>
                           </li>
                   })}
                 </ul>
@@ -94,14 +98,16 @@ class Dashboard extends React.Component {
             <div className='dashboard-owedlist'>YOU ARE OWED
                 <ul>
                   {owedList.map(friend => {
-                    return <li>
-                              <span style={{color: 'black'}}>
-                                {this.props.friends[friend[0]].username}
-                              </span>
-                            <br/>
-                              <span style={{color:'#5bc5a7'}}>
-                                  owes you ${friend[1]}
-                              </span>
+                    return <li key={friend[0]}>
+                              <Link to={`/friend/${friend[0]}`} key={friend[0]} className='friend-index-item' >
+                                  <span style={{color: 'black'}}>
+                                    {this.props.friends[friend[0]].username}
+                                  </span>
+                                <br/>
+                                  <span style={{color:'#5bc5a7'}}>
+                                      owes you ${friend[1]}
+                                  </span>
+                            </Link>
                           </li>
                   })}
                 </ul>

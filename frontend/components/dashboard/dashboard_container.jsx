@@ -11,26 +11,26 @@ function mapStateToProps({session, bills, users, friends}){
   const id = session.currentUser.id
   const amountLent = Object.keys(bills).reduce((total, billId) => {
         const bill = bills[billId]
-        const amount = parseInt(bill.amount)
+        const amount = parseFloat(bill.amount)
         const lender = bill.lender
         if(id === lender) {
           return amount + total
         }else {
           return total
         }
-  }, 0)
+  }, 0).toFixed(2)
   const amountBorrowed = billsArray.reduce((total, billId) => {
     const bill = bills[billId]
-    const amount = parseInt(bill.amount)
+    const amount = parseFloat(bill.amount)
     const lendee = bill.lendee
     if(id === lendee) {
       return amount + total
     }else {
       return total
     }
-  }, 0)
+  }, 0).toFixed(2)
 
-  const totalAmount = amountLent - amountBorrowed
+  const totalAmount = (amountLent - amountBorrowed).toFixed(2)
   const friendsArray = Object.keys(friends).map(id => {
     return friends[id].username
   })

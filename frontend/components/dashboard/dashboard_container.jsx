@@ -13,7 +13,7 @@ function mapStateToProps({session, bills, users, friends}){
         const bill = bills[billId]
         const amount = parseFloat(bill.amount)
         const lender = bill.lender
-        if(id === lender) {
+        if(id === lender && !bill.settled) {
           return amount + total
         }else {
           return total
@@ -23,7 +23,7 @@ function mapStateToProps({session, bills, users, friends}){
     const bill = bills[billId]
     const amount = parseFloat(bill.amount)
     const lendee = bill.lendee
-    if(id === lendee) {
+    if(id === lendee && !bill.settled) {
       return amount + total
     }else {
       return total
@@ -37,7 +37,7 @@ function mapStateToProps({session, bills, users, friends}){
 
   const friendsOwesArray = Object.keys(friends).map((friend) => {
       const friendOwes = billsArray.reduce((acc, next) => {
-          if(bills[next].lendee === parseInt(friend)) {
+          if(bills[next].lendee === parseInt(friend) && !bills[next].settled) {
             return acc += parseFloat(bills[next].amount)
           }else{
             return acc
@@ -45,7 +45,7 @@ function mapStateToProps({session, bills, users, friends}){
         },0).toFixed(2)
 
       const friendOwed = billsArray.reduce((acc, next) => {
-          if(bills[next].lender === parseInt(friend)) {
+          if(bills[next].lender === parseInt(friend) && !bills[next].settled) {
 
             return acc += parseFloat(bills[next].amount)
           }else{

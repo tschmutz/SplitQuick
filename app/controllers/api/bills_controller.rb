@@ -13,6 +13,10 @@ class Api::BillsController < ApplicationController
   end
 
   def update
+    @bill = Bill.find(params[:id])
+    @bill.settled = true
+    @bill.save
+    render :index
   end
 
   def index

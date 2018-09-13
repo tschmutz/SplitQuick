@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from 'react-modal'
 import {connect} from 'react-redux'
-import toggleSettle from '../../actions/bills_actions'
+import { toggleSettle } from '../../actions/bills_actions'
 
 
 class SettleModal extends React.Component {
@@ -48,7 +48,7 @@ class SettleModal extends React.Component {
 
     handleAdd() {
       event.preventDefault();
-      console.log(this.props)
+      console.log(this.props, this.state.billId)
       this.props.settleBill(this.state.billId)
 
     }
@@ -86,7 +86,7 @@ class SettleModal extends React.Component {
             <div className='setle-modal-bills'>
               <ul className='settle-modal-list'>
                 {friendBills.map(bill => {
-                  return <li key={bill.id}
+                  return !bill.settled && <li key={bill.id}
                              style={{'list-style': 'none', color: '#5bc5a7'}}
                              value={bill.id}
                              name='bill'

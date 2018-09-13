@@ -1,5 +1,6 @@
 import React from 'react';
 import SideBar from '../sidebar/side_bar_container';
+import RecentItem from './activity_index_item';
 
 
 class Activity extends React.Component {
@@ -9,6 +10,7 @@ class Activity extends React.Component {
 
 
   render() {
+    console.log(this.props);
     return (
       <div className='test'>
         <SideBar/>
@@ -17,14 +19,21 @@ class Activity extends React.Component {
             <h1>Recent activity</h1>
           </div>
           <div className='recent-activity-items'>
-            <ul>
-
+            <ul className='ul-bills'>
+              {this.props.bills.map( bill => (
+                <li key={bill.id} className='bills-list-item'>
+                  <RecentItem
+                    bill={bill}
+                    currentUser={this.props.currentUser}
+                    friends={this.props.friends}/>
+                </li>
+              ))}
             </ul>
           </div>
 
         </div>
 
-        <div className='sidebar'>YOUR TOTAL BALANCE
+        <div className='sidebar'>
 
         </div>
       </div>

@@ -115,6 +115,7 @@ class Dashboard extends React.Component {
           </div>
         </div>
         <div className='sidebar'>
+          
         </div>
         {this.state.addModalIsOpen &&
           <AddModal isOpen={this.state.addModalIsOpen}

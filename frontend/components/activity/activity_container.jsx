@@ -4,7 +4,9 @@ import Activity from './activity_index.jsx';
 
 
 const mapStateToProps = state => ({
-
+  bills: Object.values(state.bills).reverse(),
+  currentUser: state.session.currentUser,
+  friends: state.friends
 });
 
 const mapDispatchToProps = dispatch => ({

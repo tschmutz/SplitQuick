@@ -162,9 +162,13 @@ class BillsIndex extends React.Component {
           }
           </div>
         </div>
-        <div className='sidebar'>
-          <div className='left-sidebar-header'></div>
-          <div className='left-sidebar-header'></div>
+        <div className='bills-index-sidebar'>YOUR TOTAL BALANCE
+          <div className='bills-index-total' style={{color:this.props.totalAmount < 0 ? '#ff652f':'#5bc5a7'}}>
+            {this.props.totalAmount < 0 ? 'YOU OWE' : 'YOU ARE OWED'}
+            <div style={{fontSize: '25px', fontWeight: 'boldest'}}>
+              ${Math.abs(this.props.totalAmount)}
+            </div>
+          </div>
         </div>
         {this.modal()}
       </div>

@@ -19,3 +19,9 @@ export const deleteBill = (billId) => (
     url: `api/bills/${billId}`
   })
 )
+export const toggleSettle = (billId) => (
+  $.ajax({
+    method: 'PATCH',
+    url: `api/bills/${billId}`
+  })
+)

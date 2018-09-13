@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:new, :create, :destroy]
     resources :users
     resources :friends, only: [:create, :show, :index, :destroy]
-    resources :bills, only: [:create, :show, :index, :destroy]
+    resources :bills, only: [:create, :show, :index, :destroy, :update]
     resources :bill_parts, only: [:create, :show, :index, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

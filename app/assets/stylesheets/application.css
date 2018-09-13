@@ -412,6 +412,18 @@ h3 {
   border-bottom: 1px solid #36977b
 }
 
+
+.settle-modal-list {
+    font-family: 'Lato', sans-serif;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 75px;
+    width: 250px;
+    padding-top: 0px
+}
+.settle-modal-list ul{
+}
+
 .modal-exit {
   color: white;
   padding: 7px 7px 0 0;

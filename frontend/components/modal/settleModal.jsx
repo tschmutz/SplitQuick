@@ -1,6 +1,7 @@
 import React from 'react'
 import Modal from 'react-modal'
 import {connect} from 'react-redux'
+import toggleSettle from '../../actions/bills_actions'
 
 
 class SettleModal extends React.Component {
@@ -10,9 +11,10 @@ class SettleModal extends React.Component {
     this.state = {
       modalIsOpen: this.props.isOpen,
       friend: this.props.friends[0],
-
+      billId: null
     }
     this.handleAdd = this.handleAdd.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
   }
 
   componentDidlMount() {
@@ -36,19 +38,29 @@ class SettleModal extends React.Component {
       })
     }
 
+    handleSelect() {
+      return event => {
+        this.setState({
+          billId: event.target.value
+        })
+      }
+    }
+
     handleAdd() {
       event.preventDefault();
+      console.log(this.props)
+      this.props.settleBill(this.state.billId)
 
     }
 
     render () {
       const { friends } = this.props;
       const friendBills = this.props.bills.filter(bill => {
-        console.log(parseInt(this.state.friend));
         return bill.lender === parseInt(this.state.friend)
               || bill.lendee === parseInt(this.state.friend)
       })
-      console.log(friendBills);
+
+
       return (
       <Modal
         isOpen={this.state.modalIsOpen}
@@ -72,12 +84,17 @@ class SettleModal extends React.Component {
           </div>
           <br/>
             <div className='setle-modal-bills'>
-              <ul>
+              <ul className='settle-modal-list'>
                 {friendBills.map(bill => {
-                  return <li key={bill.id} style={{'list-style': 'none'}}>
-                            which bill?
+                  return <li key={bill.id}
+                             style={{'list-style': 'none', color: '#5bc5a7'}}
+                             value={bill.id}
+                             name='bill'
+                             onClick={this.handleSelect()}
+                             >
+
                             <br/>
-                            {bill.amount}
+                            {bill.amount} for {bill.title}
                         </li>
                 })}
               </ul>
@@ -101,4 +118,8 @@ function mapStateToProps(state) {
     currentUser: state.session.currentUser
   }
 }
-export default connect(mapStateToProps)(SettleModal)
+
+const mapDispatchToProps = dispatch => ({
+  settleBill: (billId) => dispatch(toggleSettle(billId))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(SettleModal)

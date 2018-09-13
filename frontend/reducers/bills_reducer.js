@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 
-import { RECEIVE_ALL_BILLS, RECEIVE_BILL, DELETE_BILL } from '../actions/bills_actions';
+import { RECEIVE_ALL_BILLS, RECEIVE_BILL, DELETE_BILL, SETTLE_BILL } from '../actions/bills_actions';
 
 
 const billsReducer = ( state = {}, action ) => {
@@ -15,6 +15,10 @@ const billsReducer = ( state = {}, action ) => {
       let novoState = merge({}, state);
       delete novoState[action.billId];
       return novoState;
+    case SETTLE_BILL:
+      let settledState = merge({}, state)
+      newState[action.billId].settled = true
+      return newState
     default:
     return state;
   }

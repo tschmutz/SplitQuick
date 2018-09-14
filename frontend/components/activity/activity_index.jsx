@@ -19,9 +19,9 @@ class Activity extends React.Component {
             <h1>Recent activity</h1>
           </div>
           <div className='recent-activity-items'>
-            <ul className='ul-bills'>
+            <ul className='ul-recent'>
               {this.props.bills.map( bill => (
-                <li key={bill.id} className='bills-list-item'>
+                <li key={bill.id} className='bills-list-item' style={{height: '65px'}}>
                   <RecentItem
                     bill={bill}
                     currentUser={this.props.currentUser}

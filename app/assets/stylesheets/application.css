@@ -90,6 +90,12 @@
   margin: auto;
 }
 
+.avatar {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
 .test {
   display: flex;
   justify-content: center;
@@ -107,7 +113,7 @@
   padding-left: 20px;
   display: flex;
   flex-direction: column;
-
+  width: 180px;
 }
 
 .bills-index-total {
@@ -150,16 +156,22 @@
    color: gray;
    font-family: 'Lato', sans-serif;
    padding-top: 20px;
-   padding-right: 20px;
+   padding-right: 50px;
  }
  .dashboard-owedlist ul li{
    list-style: none;
    padding-bottom: 15px;
  }
+ .dashboard-owedlist ul{
+   padding-left: 0px;
+ }
 
   .dashboard-owelist ul li{
     list-style: none;
     padding-bottom: 15px;
+  }
+  .dashboard-owelist ul{
+    padding-left: 0px;
   }
 
  .dashboard-owelist {

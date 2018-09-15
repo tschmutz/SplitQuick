@@ -39,9 +39,10 @@ class SettleModal extends React.Component {
     }
 
     handleSelect() {
+
       return event => {
         this.setState({
-          billId: event.target.value
+          billId: event.target.value,
         })
       }
     }
@@ -86,15 +87,18 @@ class SettleModal extends React.Component {
             <div className='setle-modal-bills'>
               <ul className='settle-modal-list'>
                 {friendBills.map(bill => {
+                  const billColor = bill.id === this.state.billId ? '#ff652f':'#5bc5a7'
                   return !bill.settled && <li key={bill.id}
-                             style={{'list-style': 'none', color: '#5bc5a7'}}
+                             style={{'list-style': 'none',
+                                      color: billColor,
+                                      cursor:'pointer'}}
                              value={bill.id}
                              name='bill'
                              onClick={this.handleSelect()}
                              >
 
                             <br/>
-                            {bill.amount} for {bill.title}
+                            {Number(bill.amount).toFixed(2)} for {bill.title}
                         </li>
                 })}
               </ul>

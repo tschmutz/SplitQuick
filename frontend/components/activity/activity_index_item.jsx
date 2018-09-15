@@ -29,7 +29,7 @@ class RecentItem extends React.Component {
             {`You added "${bill.title}"`}
           </div>
           <div style={style}>
-            {lendeeId === this.props.currentUser.id ? `You owe $${bill.amount}` : `You get back $${bill.amount}`}
+            {lendeeId === this.props.currentUser.id ? `You owe $${amount}` : `You get back $${amount}`}
           </div>
           <div className='bill-item-month'>
             {bill.month}{bill.day}

@@ -82,7 +82,8 @@ class Dashboard extends React.Component {
                   {oweList.map(friend => {
                     return <li key={friend[0]}>
                               <Link to={`/friend/${friend[0]}`} key={friend[0]} className='friend-index-item' >
-
+                                <img className='avatar' src={"https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/avatars/100-4c516cdaad9fa42b890727b03e49634a199eaba880df708835105dfa42fac74b.png"}/>
+                                <div style={{display: 'inline-block', paddingLeft:'10px'}}>
                                 <span style={{color: 'black'}}>
                                   {this.props.friends[friend[0]].username}
                                 </span>
@@ -90,6 +91,7 @@ class Dashboard extends React.Component {
                                 <span style={{color: '#ff652f'}}>
                                   you owe ${Math.abs(friend[1])}
                                 </span>
+                                </div>
                               </Link>
                           </li>
                   })}
@@ -100,6 +102,8 @@ class Dashboard extends React.Component {
                   {owedList.map(friend => {
                     return <li key={friend[0]}>
                               <Link to={`/friend/${friend[0]}`} key={friend[0]} className='friend-index-item' >
+                                <img className='avatar' src={"https://dx0qysuen8cbs.cloudfront.net/assets/fat_rabbit/avatars/100-4c516cdaad9fa42b890727b03e49634a199eaba880df708835105dfa42fac74b.png"}/>
+                                <div style={{display: 'inline-block', paddingLeft:'10px'}}>
                                   <span style={{color: 'black'}}>
                                     {this.props.friends[friend[0]].username}
                                   </span>
@@ -107,6 +111,7 @@ class Dashboard extends React.Component {
                                   <span style={{color:'#5bc5a7'}}>
                                       owes you ${friend[1]}
                                   </span>
+                                </div>
                             </Link>
                           </li>
                   })}
@@ -115,7 +120,7 @@ class Dashboard extends React.Component {
           </div>
         </div>
         <div className='sidebar'>
-          
+
         </div>
         {this.state.addModalIsOpen &&
           <AddModal isOpen={this.state.addModalIsOpen}

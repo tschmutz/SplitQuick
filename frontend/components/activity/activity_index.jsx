@@ -21,7 +21,7 @@ class Activity extends React.Component {
           <div className='recent-activity-items'>
             <ul className='ul-recent'>
               {this.props.bills.map( bill => (
-                <li key={bill.id} className='bills-list-item' style={{height: '65px'}}>
+                <li key={bill.id} className='bills-list-item' style={{height: '70px'}}>
                   <RecentItem
                     bill={bill}
                     currentUser={this.props.currentUser}

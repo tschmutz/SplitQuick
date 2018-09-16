@@ -12,7 +12,7 @@ class BillsIndex extends React.Component {
       description: '',
       friend: '',
       amount: '',
-      payer: ''
+      payer: '',
     }
 
   this.openModal = this.openModal.bind(this);
@@ -150,7 +150,8 @@ class BillsIndex extends React.Component {
                'loading' :
             <ul className='ul-bills'>
               {this.props.bills.map( bill => (
-                <li key={bill.id} className='bills-list-item'>
+                <li key={bill.id} className='bills-list-item'
+                  onclick={this.toggleActiveClass}>
                   <BillItem
                     bill={bill}
                     currentUser={this.props.currentUser}

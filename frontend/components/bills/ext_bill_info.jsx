@@ -14,6 +14,7 @@ class BillInfo extends React.Component {
 
     return (
       <div className='bill-info'>
+
         bill comments
 
 
@@ -22,3 +23,5 @@ class BillInfo extends React.Component {
   }
 
 }
+
+export default BillInfo

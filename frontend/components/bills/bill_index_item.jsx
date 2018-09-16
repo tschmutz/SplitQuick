@@ -1,11 +1,24 @@
 import React from 'react';
+import BillInfo from './ext_bill_info'
 
 
 class BillItem extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      extInfoShow: false
+    }
+
+    this.toggleInfo = this.toggleInfo.bind(this)
   };
+
+  toggleInfo(){
+    console.log('toggle')
+    this.setState({
+      extInfoShow: !this.state.extInfoShow
+    })
+  }
 
 
 
@@ -19,7 +32,8 @@ class BillItem extends React.Component {
     const amount = Number((this.props.bill.amount)).toFixed(2)
     const style = lendee === 'You' ? {color: '#ff652f'} : {color: '#5bc5a7'}
     return (
-      <div className='bill-item-wrapper'>
+      <div>
+      <div className='bill-item-wrapper' onClick={this.toggleInfo} style={{cursor: 'pointer'}}>
         <div className='bill-item-main-block'>
           <div className='bill-item-date'>
             <div className='bill-item-month'>
@@ -54,7 +68,9 @@ class BillItem extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </div >
+        {this.state.extInfoShow && <BillInfo bill={this.props.bill}/>}
+        </div>
     )
   }
 }

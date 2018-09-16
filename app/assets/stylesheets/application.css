@@ -129,6 +129,11 @@
   padding-left: 50px;
 }
 
+.bill-info {
+  height: 250px;
+
+}
+
 .ul-recent {
   padding-left: 5px;
 }
@@ -136,7 +141,7 @@
  .dashboard {
    display: inline-block;
    width: 560px;
-   height: 720px;
+   min-height: 720px;
    border-left: 1px solid lightgray;
    border-right: 1px solid lightgray;
    box-shadow: 10px;
@@ -750,18 +755,20 @@ h3 {
 }
 
  .bills-list-item {
-   height: 55px;
+   height: auto;
    width: 550px;
    padding-left: 0;
    list-style: none;
    border-top: 1px solid #eee;
    border-bottom: 1px solid #eee;
    font-family: 'Lato', sans-serif;
+
  }
+
 
  .bill-item-wrapper {
    display: flex;
-
+   height: 55px
  }
 
  .bill-item-main-block {

@@ -16,6 +16,8 @@ class Api::BillsController < ApplicationController
     @bill = Bill.find(params[:id])
     @bill.settled = true
     @bill.save
+    @bills_owed = current_user.bills_owed
+    @bills_lent = current_user.bills_lent
     render :index
   end
 

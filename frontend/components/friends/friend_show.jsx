@@ -2,6 +2,7 @@ import React from 'react';
 import SideBar from '../sidebar/side_bar_container';
 import Modal from 'react-modal';
 import BillItem from '../bills/bill_index_item';
+import SettleModal from '../modal/settleModal'
 
 class  FriendShow extends React.Component {
   constructor(props) {
@@ -10,11 +11,14 @@ class  FriendShow extends React.Component {
       modalIsOpen: false,
       description: '',
       amount: '',
-      payer: ''
+      payer: '',
+      settleModalIsOpen: false
     }
     this.handleDelete = this.handleDelete.bind(this)
     this.openModal = this.openModal.bind(this);
+    this.openSettleModal = this.openSettleModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.closeSettleModal = this.closeSettleModal.bind(this);
     this.friendsBills = this.friendsBills.bind(this);
 
   };
@@ -37,6 +41,13 @@ class  FriendShow extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
+  }
+  openSettleModal() {
+    this.setState({settleModalIsOpen: true});
+  }
+
+  closeSettleModal() {
+    this.setState({settleModalIsOpen: false});
   }
 
   handleInput(type) {
@@ -154,7 +165,7 @@ class  FriendShow extends React.Component {
             <h1>{this.props.friend.username}</h1>
             <button className='delete-friend' onClick={() => this.handleDelete(this.props.friend.id)}>
               <i style={styles} className="fas fa-trash-alt"></i>&nbsp;Delete Friend</button>
-            <button className='settle'>Settle up</button>
+            <button className='settle' onClick={this.openSettleModal}>Settle up</button>
             <button  onClick={this.openModal} className='add-bill'>Add a Bill</button>
           </div>
           <div className='bills-items'>
@@ -174,6 +185,10 @@ class  FriendShow extends React.Component {
         <div className='sidebar'>
         </div>
         {this.modal()}
+        {this.state.settleModalIsOpen &&
+          <SettleModal isOpen={this.state.settleModalIsOpen}
+                    addBill={this.handleSubmit}
+                    closeModal={this.closeSettleModal}/>}
       </div>
     )
   }

@@ -17,8 +17,8 @@ const billsReducer = ( state = {}, action ) => {
       return novoState;
     case SETTLE_BILL:
       let settledState = merge({}, state)
-      newState[action.billId].settled = true
-      return newState
+      settledState[action.billId].settled = true
+      return settledState
     default:
     return state;
   }

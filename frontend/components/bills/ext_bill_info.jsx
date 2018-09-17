@@ -45,7 +45,7 @@ class BillInfo extends React.Component {
 }
 
 function mapStateToProps(state, hasOwnProps) {
-  console.log(hasOwnProps)
+
 }
 
 function mapDispatchToProps(dispatch) {

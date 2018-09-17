@@ -665,6 +665,10 @@ h3 {
   font-size: 24px;
   color: #5bc5a7;
 }
+
+.test {
+  height: 500px;
+}
 .signup-button {
   cursor: pointer;
   background-color: #ff652f;

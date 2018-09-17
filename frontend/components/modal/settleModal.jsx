@@ -79,7 +79,7 @@ class SettleModal extends React.Component {
               onChange={this.handleInput('friend')}
               placeholder='Enter name'>
               {friends.map(friend => (
-                 <option value={friend[0]}>{friend[1]}</option>
+                 <option key={friend[0]} value={friend[0]}>{friend[1]}</option>
               ))}
             </select>
           </div>
@@ -89,7 +89,7 @@ class SettleModal extends React.Component {
                 {friendBills.map(bill => {
                   const billColor = bill.id === this.state.billId ? '#ff652f':'#5bc5a7'
                   return !bill.settled && <li key={bill.id}
-                             style={{'list-style': 'none',
+                             style={{'listStyle': 'none',
                                       color: billColor,
                                       cursor:'pointer'}}
                              value={bill.id}

@@ -14,10 +14,10 @@ class BillItem extends React.Component {
   };
 
   toggleInfo(){
-    console.log('toggle')
-    this.setState({
-      extInfoShow: !this.state.extInfoShow
-    })
+    // console.log('toggle')
+    // this.setState({
+    //   extInfoShow: !this.state.extInfoShow
+    // })
   }
 
 

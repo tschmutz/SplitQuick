@@ -7,6 +7,7 @@ class SignUpForm extends React.Component {
     super(props)
     this.state = {username: "", password: ""}
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.guestSignIn = this.guestSignIn.bind(this)
   }
 
   updateInfo(info) {
@@ -18,6 +19,10 @@ class SignUpForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.signup(this.state);
+  }
+
+  guestSignIn() {
+    this.props.login({username: 'Guest', password: '123456'});
   }
 
   componentWillUnmount() {
@@ -62,6 +67,7 @@ class SignUpForm extends React.Component {
             </label>
             <br/>
             <input className='signup-button' type='submit' value="Sign Me Up!"/>
+            <button onClick={this.guestSignIn} type='reset' className='signup-button'>Demo</button>
           </form>
 
         </div>

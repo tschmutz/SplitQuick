@@ -2,6 +2,7 @@ import React from 'react';
 import SideBar from '../sidebar/side_bar_container';
 import BillItem from './bill_index_item';
 import Modal from 'react-modal';
+import SettleModal from '../modal/settleModal'
 
 class BillsIndex extends React.Component {
   constructor(props) {
@@ -13,11 +14,14 @@ class BillsIndex extends React.Component {
       friend: '',
       amount: '',
       payer: '',
+      settleModalIsOpen: false
     }
 
   this.openModal = this.openModal.bind(this);
   this.closeModal = this.closeModal.bind(this);
   this.clearState = this.clearState.bind(this);
+  this.openSettleModal = this.openSettleModal.bind(this);
+  this.closeSettleModal = this.closeSettleModal.bind(this);
   };
 
   componentDidMount() {
@@ -26,7 +30,16 @@ class BillsIndex extends React.Component {
     this.props.requestFriends();
   }
 
-
+openSettleModal() {
+  this.setState({
+    settleModalIsOpen: true
+  })
+}
+closeSettleModal() {
+  this.setState({
+    settleModalIsOpen: false
+  })
+}
 
 
   openModal() {
@@ -142,7 +155,7 @@ class BillsIndex extends React.Component {
         <div className='dashboard'>
           <div className='dashboard-header'>
             <h1>Expenses</h1>
-            <button className='settle'>Settle up</button>
+            <button className='settle' onClick={this.openSettleModal}>Settle up</button>
             <button onClick={this.openModal} className='add-bill'>Add a Bill</button>
           </div>
           <div className='bills-items'>
@@ -150,8 +163,7 @@ class BillsIndex extends React.Component {
                'loading' :
             <ul className='ul-bills'>
               {this.props.bills.map( bill => (
-                <li key={bill.id} className='bills-list-item'
-                  onclick={this.toggleActiveClass}>
+                <li key={bill.id} className='bills-list-item'>
                   <BillItem
                     bill={bill}
                     currentUser={this.props.currentUser}
@@ -172,6 +184,10 @@ class BillsIndex extends React.Component {
           </div>
         </div>
         {this.modal()}
+        {this.state.settleModalIsOpen &&
+          <SettleModal isOpen={this.state.settleModalIsOpen}
+                    addBill={this.handleSubmit}
+                    closeModal={this.closeSettleModal}/>}
       </div>
     )
   }

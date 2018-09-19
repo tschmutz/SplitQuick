@@ -64,8 +64,7 @@ function mapStateToProps({session, bills, users, friends}){
     friendsArray,
     friendsOwesArray,
     friends
-    // bills,
-    // users,
+
   }
 };
 

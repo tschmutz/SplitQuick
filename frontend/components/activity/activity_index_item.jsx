@@ -15,7 +15,7 @@ class RecentItem extends React.Component {
 
     const lender = lenderId == this.props.currentUser.id ? 'You' : this.props.bill.lender_username;
     const lendee = lender === 'You' ?  this.props.bill.lendee_username  :'You';
-    console.log(this.props);
+
     const amount = Number((this.props.bill.amount)).toFixed(2)
     const style = lendee === 'You' ? {color: '#ff652f'} : {color: '#5bc5a7'}
     return (

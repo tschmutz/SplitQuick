@@ -49,7 +49,6 @@ class SettleModal extends React.Component {
 
     handleAdd() {
       event.preventDefault();
-      console.log(this.props, this.state.billId)
       this.props.settleBill(this.state.billId)
 
     }

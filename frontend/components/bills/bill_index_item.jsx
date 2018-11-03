@@ -13,9 +13,9 @@ class BillItem extends React.Component {
     this.toggleInfo = this.toggleInfo.bind(this)
   };
 
-  // toggleInfo(){
-  //
-  // }
+  toggleInfo(){
+
+  }
 
 
 

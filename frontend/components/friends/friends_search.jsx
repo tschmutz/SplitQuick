@@ -72,3 +72,9 @@ class FriendsSearch extends React.Component {
 }
 
 export default FriendsSearch;
+
+
+
+// <ul className='friends-search-list'>
+//   {this.props.users.map(user => <li key={Date()}>{user.username}</li>)}
+// </ul>

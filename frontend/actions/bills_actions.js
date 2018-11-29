@@ -28,13 +28,9 @@ const settleBill = billId => ({
 
 export const fetchAllBills = function(){
   return function dispatcher(dispatch) {
-    // set loading to true for your expenses state
-    // setTimeout 3000
-    // do this call
+
     APIUtil.fetchAllBills().then( bills => dispatch(receiveAllBills(bills)))
-    // after it's done set loading to false
-    // response w/ bills
-    // maybe do error state.
+
   }
 }
 export const createBill = (bill) => (dispatch) => (

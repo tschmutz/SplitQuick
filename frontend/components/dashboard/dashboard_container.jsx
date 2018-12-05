@@ -65,7 +65,7 @@ function mapStateToProps({session, bills, users, friends}){
     friendsOwesArray,
     friends
 
-  }
+  };
 };
 
 const mapDispatchToProps = dispatch => ({

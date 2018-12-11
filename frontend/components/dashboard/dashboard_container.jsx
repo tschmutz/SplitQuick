@@ -14,7 +14,7 @@ function mapStateToProps({session, bills, users, friends}){
         const amount = parseFloat(bill.amount)
         const lender = bill.lender
         if(id === lender && !bill.settled) {
-          return amount + total
+          return amount + total;
         }else {
           return total
         }

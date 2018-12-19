@@ -19,15 +19,15 @@ class SignUpForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.signup(this.state);
-  }
+  };
 
   guestSignIn() {
     this.props.login({username: 'Guest', password: '123456'});
-  }
+  };
 
   componentWillUnmount() {
     this.props.resetErrors('');
-  }
+  };
 
 //   renderErrors() {
 //   return(

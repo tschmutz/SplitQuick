@@ -14,7 +14,7 @@ class SignUpForm extends React.Component {
     return event => this.setState({
       [info]: event.target.value
     })
-  }
+  };
 
   handleSubmit(event) {
     event.preventDefault();
